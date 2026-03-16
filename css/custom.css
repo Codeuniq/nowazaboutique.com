@@ -634,7 +634,7 @@ body {
     display: flex;
     margin: 0;
     padding: 0;
-    gap: 15px;
+    gap: 0px;
     /* smaller gap between cards */
 }
 
