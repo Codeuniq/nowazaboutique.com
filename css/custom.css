@@ -10,25 +10,88 @@ body {
 }
 
 
+* Container */
+.header {
+    width: 100%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header .container {
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+/* Logo */
+.logo img {
+    height: 80px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+/* Social Icons */
 .social-icons i {
     margin-right: 15px;
+    font-size: 20px;
+    color: #333;
+    transition: color 0.3s ease, transform 0.3s ease;
     cursor: pointer;
-    font-size: 19px;
-    color: black;
+}
+.social-icons i:hover {
+    color: #e91e63;
+    transform: translateY(-3px);
 }
 
-.logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-}
-
+/* Header Icons */
 .header-icons {
     display: flex;
     align-items: center;
     gap: 20px;
-    font-size: 20px;
+    font-size: 18px;
+    color: #333;
+}
+.header-icons i {
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.header-icons i:hover {
+    color: #e91e63;
+    transform: scale(1.2);
+}
+.header-icons .contact-number {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Cart Icon */
+.cart-icon {
+    position: relative;
     cursor: pointer;
-    color: black;
+}
+.cart-icon #cartCount {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #e91e63;
+    color: #fff;
+    font-size: 12px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .cart-icon {
