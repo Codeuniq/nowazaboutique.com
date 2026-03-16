@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6345949850114046"
+		crossorigin="anonymous">
+		</script>
+	<title>Nowazaa Products</title>
+	<meta charset="utf-8">
+	<meta name="description"
+		content="Nowazaa">
+	<link href="images/favi.webp" rel="icon">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="author" content="MUHAMMED FAISAN">
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css'>
+	<link rel='stylesheet' href='https://www.insightindia.com/mcss/icon-font.css'>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+	<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/swiper@5.2.0/css/swiper.min.css'>
+	<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/easyzoom@2.5.2/css/easyzoom.css'>
+
+	<link
+		href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Marcellus&display=swap"
+		rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="shop/css/animate.css">
+
+	<link rel="stylesheet" href="shop/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="shop/css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="shop/css/magnific-popup.css">
+	<link rel="stylesheet" href="shop/css/flaticon.css">
+	<link rel="stylesheet" href="shop/css/shop.css">
+	<link rel="stylesheet" href="css/responsive.css">
+	<link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body class="goto-here">
+	<!-- ? Preloader Start -->
+
+	<section>
+		<!-- ===== HEADER ===== -->
+		<header class="header">
+
+			<div class="mobile-menu d-block d-sm-none" id="menuBtn">
+				<i class="fas fa-bars"></i>
+			</div>
+			<div class="social-icons">
+				<i class="fab fa-facebook-f"></i>
+				<i class="fab fa-whatsapp"></i>
+			</div>
+
+			<div class="logo">
+				<a href="index.html"><img src="images/logo.png" alt="Logo" style="width: auto;height: 110px;"></a>
+			</div>
+
+			<div class="header-icons">
+				<i class="fab fa-instagram"></i>
+				<!-- <div class="currency-toggle">
+					<div class="toggle" id="currencyToggle">
+						<div class="toggle-indicator"></div>
+						<span class="currency inr active">INR</span>
+						<span class="currency aed ">AED</span>
+					</div>
+				</div> -->
+				<div class="cart-icon" onclick="openCart()">
+					<i class="fa fa-shopping-bag" style="color: black;"></i>
+					<span id="cartCount">5</span>
+				</div>
+			</div>
+
+		</header>
+		<!-- <div class="wrappers">
+			<div class="elements"></div>
+		</div> -->
+		<!-- ===== NAVBAR ===== -->
+		<nav class="navbar" id="navbar">
+			<a href="index.html">Home</a>
+			<!-- <a href="#">Printed</a>
+			<a href="#">Solids</a> -->
+			<!-- <a href="#">Exclusive Collection</a> -->
+			<!-- <a href="#">Accessories</a> -->
+			<!-- <a href="#">Flash Sale <span class="badge">UPTO 50%</span></a> -->
+			<!-- <a href="">About Us</a> -->
+			<a href="shop.html">Products</a>
+			<a href="contact.html">Contact Us</a>
+		</nav>
+	</section>
+
+	<!-- CART MODAL -->
+	<div id="cartModal" class="cart-modal">
+		<div class="cart-content">
+
+			<!-- HEADER -->
+			<div class="cart-header">
+				<h3>Shopping Cart</h3>
+				<span class="close-btn" onclick="closeCart()">&times;</span>
+			</div>
+
+			<!-- CART ITEMS -->
+			<div class="cart-items">
+
+				<!-- PRODUCT 1 -->
+				<div class="cart-item">
+					<div class="cart-gallery">
+						<img src="images/product/abaya/a-8.jpg" class="main-img">
+					</div>
+
+					<div class="item-info">
+						<h4>Abaya</h4>
+
+						<div class="price-qty">
+							<p class="price">
+								<img src="images/aed.webp"
+									style="height:15px;width:auto;margin-top:-4px;padding-right:2px;" />
+								<span>25.00</span>
+							</p>
+
+							<div class="qty modern-qty">
+								<button onclick="qtyChange(this,-1)">−</button>
+								<span class="qty-num">1</span>
+								<button onclick="qtyChange(this,1)">+</button>
+							</div>
+
+						</div>
+					</div>
+
+
+					<span class="remove" onclick="removeItem(this)">&times;</span>
+				</div>
+
+				<!-- PRODUCT 2 -->
+				<div class="cart-item">
+					<div class="cart-gallery">
+						<img src="images/product/abaya/a-5.jpg" class="main-img">
+					</div>
+
+					<div class="item-info">
+						<h4>Abaya</h4>
+
+						<div class="price-qty">
+							<p class="price" id="aed">
+								<img src="images/aed.webp"
+									style="height:15px;width:auto;margin-top:-4px;padding-right:2px;" />
+								<span>125.00</span>
+							</p>
+
+							<div class="qty modern-qty">
+								<button onclick="qtyChange(this,-1)">−</button>
+								<span class="qty-num">1</span>
+								<button onclick="qtyChange(this,1)">+</button>
+							</div>
+
+						</div>
+					</div>
+					<span class="remove" onclick="removeItem(this)">&times;</span>
+				</div>
+			</div>
+
+			<!-- FOOTER -->
+			<div class="cart-footer">
+				<div class="total">
+					<span>Total</span>
+					<strong><img src="images/aed.webp"
+							style="height:12px;width:auto;margin-top:-4px;padding-right:2px;" />25.00</strong>
+				</div>
+				<a id="chechout" href="https://wa.me/+971507135589?text=I'd like to place an order." target="_blank"
+					style="flex:1;">
+					<button class="userlogin-button" style="width:100%;">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black"
+							class="bi bi-bag-heart-fill" viewBox="0 0 16 16">
+							<path
+								d="M11.5 4v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m0 6.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132" />
+						</svg>
+						<span style="font-size:13px;font-weight:700;margin-left:6px;">Checkout</span>
+					</button>
+				</a>
+			</div>
+		</div>
+	</div>
+
+
+
+	<section class="ftco-product">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-12 heading-section text-center ftco-animate">
+					<p style="font-family: Emirates Bold;"
+						style="color:#343434	;font-family: NexaRegular; font-size:16px; font-weight:600;">
+						A stylish and elegant wear, designed for comfort and cultural flair, perfect for any
+						occasion.
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="prod">
+			<div class="prod-header">
+				<ul class="nav nav-tabs justify-content-center" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link tab-btn active" data-category="abaya" data-toggle="tab" href="#abaya"
+							role="tab">
+							<!-- <i class="now-ui-icons objects_umbrella-13"></i>  -->
+							Abaya
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link tab-btn" data-category="modest" data-toggle="tab" href="#modest" role="tab">
+							<!-- <i class="now-ui-icons ui-2_settings-90"></i>  -->
+							Modest Wear
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link tab-btn" data-category="ladies" data-toggle="tab" href="#ladies" role="tab">
+							<!-- <i class="now-ui-icons ui-2_settings-90"></i>  -->
+							Ladies Formal
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link tab-btn" data-category="cotton" data-toggle="tab" href="#cotton" role="tab">
+							<!-- <i class="now-ui-icons ui-2_settings-90"></i>  -->
+							Cotton Salwar
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link tab-btn" data-category="coorder" data-toggle="tab" href="#coorder" role="tab">
+							<!-- <i class="now-ui-icons ui-2_settings-90"></i>  -->
+							Co-Ord Set
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link tab-btn" data-category="prayer" data-toggle="tab" href="#prayer" role="tab">
+							<!-- <i class="now-ui-icons ui-2_settings-90"></i>  -->
+							Prayer Dress
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link tab-btn" data-category="hijab" data-toggle="tab" href="#hijab" role="tab">
+							<!-- <i class="now-ui-icons ui-2_settings-90"></i>  -->
+							Hijab
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link tab-btn" data-category="girl" data-toggle="tab" href="#girls" role="tab">
+							<!-- <i class="now-ui-icons ui-2_settings-90"></i>  -->
+							Girls
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="prod-body" data-aos="fade-up">
+				<!-- Tab panes -->
+				<div class="tab-content text-center">
+					<div class="tab-pane active" id="abaya" role="tabpanel">
+						<div class="container">
+							<div class="row justify-content-center">
+								<div class="col-6 col-md-6 col-lg-3  ftco-animate d-flex">
+									<div  class="product d-flex flex-column" style="cursor:pointer;">
+										<div class="carousels">
+											<div class="carousel_slider">
+												<div class="content_inner_slider">
+													<img src="images/product/abaya/a-1.jpg" class="PRimg">
+													<img src="images/product/abaya/a-2.jpg" class="PRimg">
+													<img src="images/product/abaya/a-3.jpg" class="PRimg">
+
+												</div>
+
+												<button class="prev_button PRBTN">
+													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+														fill="currentColor" class="bi bi-caret-left-fill"
+														viewBox="0 0 16 16">
+														<path
+															d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
+													</svg>
+
+												</button>
+												<button class="next_button PRBTN">
+													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+														fill="currentColor" class="bi bi-caret-right-fill"
+														viewBox="0 0 16 16">
+														<path
+															d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+													</svg>
+
+												</button>
+											</div>
+
+											<ul class="dots d-none">
+												<li class="dot"></li>
+												<li class="dot"></li>
+												<li class="dot"></li>
+											</ul>
+										</div>
+										<div class="text  py-3 pb-4 px-3 cardTop" onclick="window.location.href='product-details.html'" style="cursor: pointer;">
+											<div
+												style="display: flex; justify-content: space-between; align-items: center;">
+												<div class="pricing">
+													<!-- <p class="price" id="inr">
+														<span>
+															<img src="images/inr.png"
+																style="height: 12px; width: auto; margin-top:-2px; padding-right: 2px;" />
+															120.00
+														</span>
+													</p> -->
+													<p class="price" id="aed">
+														<span>
+															<img src="images/aed.webp"
+																style="height: 12px; width: auto; margin-top:-2px; padding-right: 2px;" />
+															120.00
+														</span>
+													</p>
+													
+												</div>
+											</div>
+											<h3>NowazaA ABAYA PREMIUM</h3>
+
+
+											<div class="d-flex margb">
+												<div class="cat">
+													<span>NOWAZA</span>
+												</div>
+												<div class="rating">
+													<p class="text-right mb-0">
+														<span class="fa fa-star starrat"></span>
+														<span class="fa fa-star starrat"></span>
+														<span class="fa fa-star starrat"></span>
+														<span class="fa fa-star starrat"></span>
+														<span class="fa fa-star starrat"></span>
+													</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- <button class="see-more-btn">See More</button> -->
+					</div>
+					<div class="tab-pane" id="modest" role="tabpanel">
+						<div class="container">
+							<div class="row justify-content-center">
+								
+
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane" id="ladies" role="tabpanel">
+						<div class="container">
+							<div class="row justify-content-center">
+								
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane" id="cotton" role="tabpanel">
+						<div class="container">
+							<div class="row justify-content-center">
+								
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane" id="coorder" role="tabpanel">
+						<div class="container">
+							<div class="row justify-content-center">
+								
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane" id="prayer" role="tabpanel">
+						<div class="container">
+							<div class="row justify-content-center">
+								
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane" id="hijab" role="tabpanel">
+						<div class="container">
+							<div class="row justify-content-center">
+								
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane" id="girls" role="tabpanel">
+						<div class="container">
+							<div class="row justify-content-center">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+
+	</section>
+	<!--==========================
+    Footer
+  ============================-->
+	<footer id="footer">
+		<div class="footer-top">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-lg-3 col-md-6 footer-info">
+						<!-- <h3>Yarmook</h3> -->
+						<a href="#intro"><img src="images/logo.png" alt="Nowazaa" title="Nowazaa"
+								style="height:100px;width: auto;" /></a>
+						<!-- <img src="assets/img/logo.webp" alt="Nowazaa" title="Nowazaa" style="height:100px;width: auto;" /> -->
+						<p class="pt-2">With experience in garment trading for more than a decade, Nowazaa Garments are
+							comfortable
+							clothing that becomes your second skin.</p>
+					</div>
+
+					<div class="col-lg-3 col-md-6 footer-links">
+						<h4>Useful Links</h4>
+						<ul>
+							<li><i class="bi bi-chevron-right"></i> <a href="#home">Home</a></li>
+							<!-- <li><i class="bi bi-chevron-right"></i> <a href="#about">About us</a></li> -->
+							<li><i class="bi bi-chevron-right"></i> <a href="#portfolio">Products</a></li>
+							<!-- <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li> -->
+							<!-- <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li> -->
+						</ul>
+					</div>
+
+					<div class="col-lg-3 col-md-6 footer-contact black">
+						<h4>Contact Us</h4>
+						<p><img src="images/app/address.webp" style="height: 18px;width: auto; padding-right: 5px;" />
+							Murshid Bazar, Near Gold Souq <br>Gate No.1 Opp Belhoul Masjid,<br>Deira, Dubai - UAE
+							<br>
+							<strong><img src="images/app/call.webp"
+									style="height: 18px;width: auto; padding-right: 5px;" /></strong>+971507135589<br>
+							<strong><img src="images/app/email.webp"
+									style="height: 18px;width: auto; padding-right: 5px;" /></strong>admin@ttgulf.ae<br>
+						</p>
+
+						<div class="social-links">
+							<!-- <a class="twitter"><i class="fa fa-twitter"></i></a> -->
+							<a href=" https://www.facebook.com/Nowazaa.gcc/" class="facebook" target="_blank"><i
+									class="fa fa-facebook"></i></a>
+							<a href="https://www.instagram.com/Nowazaa.gcc/" class="instagram" target="_blank"><i
+									class="fa fa-instagram"></i></a>
+							<!-- <a href="" class="instagram"><i class="bi bi-instagram"></i></a> -->
+							<a href="https://www.tiktok.com/@Nowazaa.gcc/" class="linkedin" target="_blank"><svg
+									xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+									class="bi bi-tiktok" viewBox="0 0 16 16">
+									<path
+										d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z" />
+								</svg></a>
+						</div>
+
+					</div>
+
+					<div class="col-lg-3 col-md-6 footer-links">
+						<h4>Location</h4>
+						<iframe
+							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3583.877185657216!2d55.43551827525452!3d25.29201812785377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5f9a8f55012b%3A0xd96ee2009a178f30!2sTreasure%20Tower%20General%20Trading!5e1!3m2!1sen!2sin!4v1765609875878!5m2!1sen!2sin"
+							style="border:0; width: 100%; height: 200px;border-radius: 30px" allowfullscreen=""
+							loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="copyright">
+				&copy; Copyright <strong>Nowazaa</strong>. All Rights Reserved
+			</div>
+			<div class="credits" style="color: white;">
+				Developed by <a class="instagram" href="https://faisan333.github.io/Faisan.github.io/" target="_blank">
+					<!-- <i class="bi bi-instagram" style="width:16px;height:16px;color:#C13584;"></i> -->
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#D4AF37"
+						class="bi bi-code-square" viewBox="0 0 16 16">
+						<path
+							d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
+						<path
+							d="M6.854 4.646a.5.5 0 0 1 0 .708L4.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0m2.292 0a.5.5 0 0 0 0 .708L11.793 8l-2.647 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708 0" />
+					</svg>
+				</a>
+			</div>
+		</div>
+	</footer>
+	<!-- #footer -->
+	<!-- #footer -->
+
+	<a href="https://wa.me/+971507135589" target="_blank" class="back-to-top" type="button" class="btn"
+		data-toggle="tooltip" data-placement="left" title="Whatsapp Us">
+		<svg style="pointer-events:none; display:block; height:50px; width:50px;" width="60px" height="60px"
+			viewBox="0 0 1024 1024">
+			<defs>
+				<path id="htwasqicona-chat"
+					d="M1023.941 765.153c0 5.606-.171 17.766-.508 27.159-.824 22.982-2.646 52.639-5.401 66.151-4.141 20.306-10.392 39.472-18.542 55.425-9.643 18.871-21.943 35.775-36.559 50.364-14.584 14.56-31.472 26.812-50.315 36.416-16.036 8.172-35.322 14.426-55.744 18.549-13.378 2.701-42.812 4.488-65.648 5.3-9.402.336-21.564.505-27.15.505l-504.226-.081c-5.607 0-17.765-.172-27.158-.509-22.983-.824-52.639-2.646-66.152-5.4-20.306-4.142-39.473-10.392-55.425-18.542-18.872-9.644-35.775-21.944-50.364-36.56-14.56-14.584-26.812-31.471-36.415-50.314-8.174-16.037-14.428-35.323-18.551-55.744-2.7-13.378-4.487-42.812-5.3-65.649-.334-9.401-.503-21.563-.503-27.148l.08-504.228c0-5.607.171-17.766.508-27.159.825-22.983 2.646-52.639 5.401-66.151 4.141-20.306 10.391-39.473 18.542-55.426C34.154 93.24 46.455 76.336 61.07 61.747c14.584-14.559 31.472-26.812 50.315-36.416 16.037-8.172 35.324-14.426 55.745-18.549 13.377-2.701 42.812-4.488 65.648-5.3 9.402-.335 21.565-.504 27.149-.504l504.227.081c5.608 0 17.766.171 27.159.508 22.983.825 52.638 2.646 66.152 5.401 20.305 4.141 39.472 10.391 55.425 18.542 18.871 9.643 35.774 21.944 50.363 36.559 14.559 14.584 26.812 31.471 36.415 50.315 8.174 16.037 14.428 35.323 18.551 55.744 2.7 13.378 4.486 42.812 5.3 65.649.335 9.402.504 21.564.504 27.15l-.082 504.226z">
+				</path>
+			</defs>
+			<linearGradient id="htwasqiconb-chat" gradientUnits="userSpaceOnUse" x1="512.001" y1=".978" x2="512.001"
+				y2="1025.023">
+				<stop offset="0" stop-color="#61fd7d"></stop>
+				<stop offset="1" stop-color="#2bb826"></stop>
+			</linearGradient>
+			<use xlink:href="#htwasqicona-chat" overflow="visible" style="fill: url(#htwasqiconb-chat)"
+				fill="url(#htwasqiconb-chat)"></use>
+			<g>
+				<path style="fill: #FFFFFF;" fill="#FFF"
+					d="M783.302 243.246c-69.329-69.387-161.529-107.619-259.763-107.658-202.402 0-367.133 164.668-367.214 367.072-.026 64.699 16.883 127.854 49.017 183.522l-52.096 190.229 194.665-51.047c53.636 29.244 114.022 44.656 175.482 44.682h.151c202.382 0 367.128-164.688 367.21-367.094.039-98.087-38.121-190.319-107.452-259.706zM523.544 808.047h-.125c-54.767-.021-108.483-14.729-155.344-42.529l-11.146-6.612-115.517 30.293 30.834-112.592-7.259-11.544c-30.552-48.579-46.688-104.729-46.664-162.379.066-168.229 136.985-305.096 305.339-305.096 81.521.031 158.154 31.811 215.779 89.482s89.342 134.332 89.312 215.859c-.066 168.243-136.984 305.118-305.209 305.118zm167.415-228.515c-9.177-4.591-54.286-26.782-62.697-29.843-8.41-3.062-14.526-4.592-20.645 4.592-6.115 9.182-23.699 29.843-29.053 35.964-5.352 6.122-10.704 6.888-19.879 2.296-9.176-4.591-38.74-14.277-73.786-45.526-27.275-24.319-45.691-54.359-51.043-63.543-5.352-9.183-.569-14.146 4.024-18.72 4.127-4.109 9.175-10.713 13.763-16.069 4.587-5.355 6.117-9.183 9.175-15.304 3.059-6.122 1.529-11.479-.765-16.07-2.293-4.591-20.644-49.739-28.29-68.104-7.447-17.886-15.013-15.466-20.645-15.747-5.346-.266-11.469-.322-17.585-.322s-16.057 2.295-24.467 11.478-32.113 31.374-32.113 76.521c0 45.147 32.877 88.764 37.465 94.885 4.588 6.122 64.699 98.771 156.741 138.502 21.892 9.45 38.982 15.094 52.308 19.322 21.98 6.979 41.982 5.995 57.793 3.634 17.628-2.633 54.284-22.189 61.932-43.615 7.646-21.427 7.646-39.791 5.352-43.617-2.294-3.826-8.41-6.122-17.585-10.714z">
+				</path>
+			</g>
+		</svg>
+	</a>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.1/jquery-migrate.min.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/popper.min.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js'></script>
+	<script src='https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js'></script>
+	<script src="shop/js/jquery.min.js"></script>
+	<script src="shop/js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="shop/js/bootstrap.min.js"></script>
+	<script src="shop/js/jquery.easing.1.3.js"></script>
+	<script src="shop/js/jquery.waypoints.min.js"></script>
+	<script src="shop/js/jquery.stellar.min.js"></script>
+	<script src="shop/js/owl.carousel.min.js"></script>
+	<script src="shop/js/jquery.magnific-popup.min.js"></script>
+	<script src="shop/js/aos.js"></script>
+	<script src="shop/js/scrollax.min.js"></script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+	<script src="shop/js/google-map.js"></script>
+	<script src="shop/js/shop.js"></script>
+	<script src="js/custom.js"></script>
+	<script src='https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'></script>
+
+</body>
+
+</html>

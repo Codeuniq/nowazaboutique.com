@@ -1,0 +1,63 @@
+/**Desktop Query*/
+@media only screen and (min-width: 768px) {
+    
+/* ===== HEADER ===== */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 202px;
+    border-bottom: 1px solid rgba(34, 34, 34, 0.15);
+}
+.padding-cho {
+    padding-top: 11rem;
+}
+/* IMAGE BOX */
+.product-img{
+    width:100%;
+    height:350px; /* fixed product image size */
+    overflow:hidden;
+}
+
+}
+
+/*Tablet Query*/
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 202px;
+    border-bottom: 1px solid rgba(34, 34, 34, 0.15);
+}
+.padding-cho {
+    padding-top: 11rem;
+}
+/* IMAGE BOX */
+.product-img{
+    width:100%;
+    height:350px; /* fixed product image size */
+    overflow:hidden;
+}
+}
+
+/*Mobile Query*/
+@media only screen and (max-width: 480px) {
+   /* ===== HEADER ===== */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(34, 34, 34, 0.15);
+}
+.padding-cho {
+    padding-top: 5rem;
+}
+/* IMAGE BOX */
+.product-img{
+    width:100%;
+    height:420px; /* fixed product image size */
+    overflow:hidden;
+}
+}
