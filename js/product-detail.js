@@ -1,34 +1,198 @@
+const API_BASE_URL = CONFIG.API_BASE_URL;
+const code = new URLSearchParams(window.location.search).get('code');
 
+// These are initialized AFTER the template is injected
+let img = null;
+let zoom = null;
 
-function showPrevImage(){
-  const thumbs = document.querySelectorAll(".product-thumbs img");
-  let currentIndex = Array.from(thumbs).findIndex(t => t.src === img.src);
-  let prevIndex = currentIndex > 0 ? currentIndex - 1 : thumbs.length - 1;
-  changeImage(thumbs[prevIndex]);
+function load_item_details() {
+	updateCartCount();
+
+	$.ajax({
+		url: `${API_BASE_URL}/api/method/frappe_ecommerce.apis.api.get_product_details?product_id=${code}`,
+		type: "GET",
+		dataType: "json",
+		success: function (res) {
+			const product_data = res.data || {};
+			const container = document.getElementById('product-page');
+			if (!container) return;
+
+			container.insertAdjacentHTML("beforeend", productDetailsTemplate(product_data));
+
+			// Select elements AFTER HTML is injected
+			img = document.getElementById('mainImage');
+			zoom = document.getElementById('zoomView');
+
+			// Init zoom and quantity buttons AFTER elements exist
+			initZoom();
+			initQtyButtons();
+		},
+		error: err => console.error("API Error", err)
+	});
 }
 
-function showNextImage(){
-  const thumbs = document.querySelectorAll(".product-thumbs img");
-  let currentIndex = Array.from(thumbs).findIndex(t => t.src === img.src);
-  let nextIndex = currentIndex < thumbs.length - 1 ? currentIndex + 1 : 0;
-  changeImage(thumbs[nextIndex]);
+/* =======================
+   QUANTITY FUNCTIONALITY
+   ======================= */
+
+function initQtyButtons() {
+	const qtyInput = document.querySelector(".qty-input");
+	const btnPlus = document.querySelector(".qty-btn.plus");
+	const btnMinus = document.querySelector(".qty-btn.minus");
+
+	if (!qtyInput || !btnPlus || !btnMinus) return;
+
+	btnPlus.addEventListener("click", () => {
+		qtyInput.value = parseInt(qtyInput.value) + 1;
+	});
+
+	btnMinus.addEventListener("click", () => {
+		if (parseInt(qtyInput.value) > 1) {
+			qtyInput.value = parseInt(qtyInput.value) - 1;
+		}
+	});
 }
-const qtyInput = document.querySelector(".qty-input");
-const btnPlus = document.querySelector(".qty-btn.plus");
-const btnMinus = document.querySelector(".qty-btn.minus");
 
-btnPlus.addEventListener("click", () => {
-    qtyInput.value = parseInt(qtyInput.value) + 1;
-});
+/* =======================
+   IMAGE ZOOM FUNCTIONALITY
+   ======================= */
 
-btnMinus.addEventListener("click", () => {
-    if(parseInt(qtyInput.value) > 1){
-        qtyInput.value = parseInt(qtyInput.value) - 1;
-    }
-});
+function initZoom() {
+	if (!img || !zoom) return;
 
+	// Set initial zoom background
+	setZoom();
+
+	img.addEventListener("mousemove", function (e) {
+		zoom.style.display = "block";
+		const rect = img.getBoundingClientRect();
+		const x = ((e.clientX - rect.left) / rect.width) * 100;
+		const y = ((e.clientY - rect.top) / rect.height) * 100;
+		zoom.style.backgroundPosition = `${x}% ${y}%`;
+	});
+
+	img.addEventListener("mouseleave", function () {
+		zoom.style.display = "none";
+	});
+}
+
+function setZoom() {
+	if (!img || !zoom) return;
+	zoom.style.backgroundImage = `url(${img.src})`;
+	zoom.style.backgroundSize = "200%";
+}
+
+// Change main image when clicking thumbnail
+function changeImage(el) {
+	if (!img) return;
+	img.src = el.src;
+	setZoom();
+}
+
+function showPrevImage() {
+	const thumbs = document.querySelectorAll(".product-thumbs img");
+	let currentIndex = Array.from(thumbs).findIndex(t => t.src === img.src);
+	let prevIndex = currentIndex > 0 ? currentIndex - 1 : thumbs.length - 1;
+	changeImage(thumbs[prevIndex]);
+}
+
+function showNextImage() {
+	const thumbs = document.querySelectorAll(".product-thumbs img");
+	let currentIndex = Array.from(thumbs).findIndex(t => t.src === img.src);
+	let nextIndex = currentIndex < thumbs.length - 1 ? currentIndex + 1 : 0;
+	changeImage(thumbs[nextIndex]);
+}
+
+/* =======================
+   SIZE SELECTION
+   ======================= */
+
+let selectedSize = "N/A";
+let selectedQty = 0;
+
+function selectSize(el, size, qty) {
+	document.querySelectorAll(".size-circle").forEach(s => s.classList.remove("active"));
+	el.classList.add("active");
+	selectedSize = size;
+	selectedQty = qty;
+	document.getElementById("selectedSize").value = size;
+
+	// Enable the button once a size is picked
+	document.getElementById("addToCartBtn").disabled = false;
+}
+
+/* =======================
+   WHATSAPP ORDER
+   ======================= */
+
+function order_via_whatsapp(el) {
+	const product = el.closest(".product-info");
+	if (!product) return;
+
+	const item_code = product.querySelector("[data-item-code]")?.innerText || "Item Code";
+	const item_name = product.querySelector(".product-title")?.innerText || "Item Name";
+	const qty = document.querySelector(".qty-input")?.value || "1";
+	const item_size = document.getElementById("selectedSize")?.value || "N/A";
+
+	const message = encodeURIComponent(
+		`I'd like to order *${item_code}* - *${item_name}* - (${item_size}) of Qty: *${qty}*.`
+	);
+
+	el.href = `https://wa.me/+971566136798?text=${message}`;
+}
+
+/* =======================
+   CART FUNCTIONALITY
+   ======================= */
+
+function getCart() {
+	return JSON.parse(localStorage.getItem("cart")) || [];
+}
+
+function saveCart(cart) {
+	localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function add_to_cart(el) {
+	const product = el.closest(".product-info");
+	if (!product) return;
+
+	const item_code = product.querySelector("[data-item-code]")?.innerText || "Item Code";
+	const item_name = product.querySelector(".product-title")?.innerText || "Item Name";
+	const qty = document.querySelector(".qty-input")?.value || "1";
+	const item_price = product.querySelector(".product-price")?.innerText?.trim() || "0.00";
+
+	const item_size = document.getElementById("selectedSize")?.value || "N/A";
+
+	const firstThumb = document.querySelector(".product-thumbs img");
+	const item_image = firstThumb ? firstThumb.src : "";
+
+	let cart = getCart();
+
+	const item_data = {
+		id: item_code,
+		name: item_name,
+		price: Number(item_price.replace(/[^\d.]/g, "")),
+		image: item_image,
+		qty: Number(qty),
+		size: item_size
+	};
+
+	const existing = cart.find(item => item.id === item_data.id && item.size === item_data.size);
+
+	if (existing) {
+		existing.qty += Number(qty);
+	} else {
+		cart.push(item_data);
+	}
+
+	saveCart(cart);
+	updateCartCount();
+}
 
 function open_cart_popup() {
+	console.log("Opening cart popup");
+
 	renderCart();
 	document.getElementById("cartModal").style.display = "flex";
 }
@@ -37,49 +201,170 @@ function closeCart() {
 	document.getElementById("cartModal").style.display = "none";
 }
 
+function renderCart() {
+	const cart = getCart();
+	const container = document.querySelector(".cart-items");
+	const totalEl = document.querySelector(".cart-footer .total strong");
+	const checkoutBtn = document.getElementById("checkout");
 
-/* =======================
-   IMAGE ZOOM FUNCTIONALITY
-   ======================= */
-const img = document.getElementById("mainImage"); // Main product image
-const zoom = document.getElementById("zoomView"); // Zoom view div
 
-// Initialize zoom background
-function setZoom() {
-    zoom.style.backgroundImage = `url(${img.src})`;
-    zoom.style.backgroundSize = "200%"; // Zoom level (200%)
+	container.innerHTML = "";
+	let total = 0;
+	let whatsappText = "I'd like to place an order:%0A";
+
+	if (!cart.length) {
+		container.innerHTML = "<p style='text-align:center'>Cart is empty</p>";
+		totalEl.innerHTML = "0.00";
+		checkoutBtn.style.pointerEvents = "none";  // ← disable
+		checkoutBtn.style.opacity = "0.4";          // ← dim it
+		return;
+	}
+	// Re-enable when cart has items
+	checkoutBtn.style.pointerEvents = "auto";
+	checkoutBtn.style.opacity = "1";
+
+	let html = "";
+	cart.forEach((item, index) => {
+		let item_total = item.price * item.qty;
+		total += item_total;
+
+		whatsappText += `*${item.id}* - *${item.name}* ( *${item.size}* ) x ${item.qty} - ${item_total.toFixed(2)} AED %0A`;
+
+		html += `
+			<div class="cart-item">
+				<div class="cart-gallery">
+					<img src="${item.image}" class="main-img">
+				</div>
+				<div class="item-info">
+					<h4>${item.name}</h4>
+					<h5 style="color: #000;">Size : ${item.size}</h5>
+					<div class="price-qty">
+						<p class="price">
+							<img src="images/aed.webp" style="height:15px;margin-top:-4px;padding-right:2px;">
+							<span>${item.price.toFixed(2)}</span>
+						</p>
+						<div class="qty modern-qty">
+							<button onclick="updateQty('${item.id}', '${item.size}', -1)">-</button>
+							<span class="qty-num">${item.qty}</span>
+							<button onclick="updateQty('${item.id}', '${item.size}', 1)">+</button>
+						</div>
+					</div>
+				</div>
+				<span class="remove" onclick="removeItem(${index})">&times;</span>
+			</div>
+		`;
+	});
+	container.innerHTML = html;
+
+	whatsappText += `%0ATotal: ${total.toFixed(2)} AED`;
+
+	totalEl.innerHTML = `
+		<img src="images/aed.webp" style="height:12px;margin-top:-4px;padding-right:2px;">
+		${total.toFixed(2)}
+	`;
+
+	document.getElementById("checkout").href = `https://wa.me/+971566136798?text=${whatsappText}`;
 }
 
-// Call once on load
-setZoom();
+function updateQty(id, size, change) {
+	let cart = getCart();
+	const item = cart.find(i => i.id === id && i.size === size);
+	if (!item) return;
+	item.qty += change;
+	if (item.qty <= 0) cart = cart.filter(i => !(i.id === id && i.size === size));
+	saveCart(cart);
+	updateCartCount();
+	renderCart();
+}
 
-// Mousemove: show zoom and update background position
-img.addEventListener("mousemove", function (e) {
-    zoom.style.display = "block"; // Show zoom
-    const rect = img.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
-    zoom.style.backgroundPosition = `${x}% ${y}%`;
-});
+function removeItem(index) {
+	let cart = getCart();
+	cart.splice(index, 1);
+	saveCart(cart);
+	updateCartCount();
+	renderCart();
+}
 
-// Mouse leave: hide zoom
-img.addEventListener("mouseleave", function () {
-    zoom.style.display = "none";
-});
+function updateCartCount() {
+	const cart = JSON.parse(localStorage.getItem("cart")) || [];
+	const cartCountEl = document.getElementById("cartCount");
 
-// Change main image when clicking thumbnail
-function changeImage(el) {
-    img.src = el.src;
-    setZoom(); // Update zoom background
+	const totalQty = cart.length;
+
+	if (totalQty > 0) {
+		cartCountEl.textContent = totalQty;
+		cartCountEl.style.display = "flex";
+	} else {
+		cartCountEl.style.display = "none";
+	}
 }
 
 /* =======================
-   QUANTITY FUNCTIONALITY
+   PRODUCT TEMPLATE
    ======================= */
-let quantity = 1;
 
-function changeQty(val) {
-    quantity += val;
-    if (quantity < 1) quantity = 1; // Prevent quantity < 1
-    document.getElementById("qty").innerText = quantity;
+function productDetailsTemplate(product) {
+	const price = product.item_price || "0.00";
+	const item_code = product.name || "";
+	const item_name = product.item_name || "";
+	const description = product.item_description || "No description available.";
+
+	// Fix: wrap size value in quotes so it works for any string value
+	const sizeOptions = product.sizes?.length
+		? product.sizes.map(size => `
+		<div class="size-circle ${size.qty === 0 ? 'disabled' : ''}"
+			 onclick="selectSize(this, '${size.size}', ${size.qty})">
+		  ${size.size}
+		</div>
+	  `).join("")
+		: '<span>No sizes available</span>';
+	const images = product.images?.length
+		? product.images
+		: ["images/item_place_holder.png"];
+
+	const thumbnails = images.map(imgSrc => `
+		<img src="${imgSrc}" onclick="changeImage(this)">
+	`).join("");
+
+	const firstImage = images[0];
+
+	return `
+		<!-- PRODUCT IMAGES -->
+		<div class="col-lg-6">
+			<div class="product-gallery">
+				<div class="product-thumbs">
+					${thumbnails}
+				</div>
+				<div class="product-main-image">
+					<img id="mainImage" src="${firstImage}">
+				</div>
+				<div class="zoom-view" id="zoomView"></div>
+			</div>
+		</div>
+
+		<!-- PRODUCT INFO -->
+		<div class="col-lg-6 product-info">
+			<h2 data-item-code style="display:none;">${item_code}</h2>
+			<h2 class="product-title">${item_name}</h2>
+			<p class="product-price">AED ${price}</p>
+			<p class="product-desc">${description}</p>
+
+			<!-- QUANTITY SELECTOR -->
+			<h6 class="mt-4">Quantity</h6>
+			<div class="quantity-selector">
+				<button type="button" class="qty-btn minus">-</button>
+				<input type="number" class="qty-input" value="1" min="1">
+				<button type="button" class="qty-btn plus">+</button>
+			</div>
+
+			<!-- SIZE -->
+			<h6 class="mt-4">Size</h6>
+			<div class="size-options">
+				${sizeOptions}
+			</div>
+			<input type="hidden" id="selectedSize" value="N/A">
+
+			<button class="add-cart-btn" onclick="add_to_cart(this)" id="addToCartBtn" disabled>Add to Cart</button>
+		</div>
+	`;
 }

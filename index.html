@@ -2,833 +2,771 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="author" content="Untree.co">
-	<link rel="shortcut icon" href="LOGO.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Untree.co">
+    <link rel="shortcut icon" href="LOGO.png">
 
-	<meta name="description" content="" />
-	<meta name="keywords" content="bootstrap, bootstrap4" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="bootstrap, bootstrap4" />
 
-	<!-- Bootstrap CSS -->
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-	<link href="css/tiny-slider.css" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet">
-	<link href="css/custom.css" rel="stylesheet">
-	<link href="css/responsive.css" rel="stylesheet">
-	<title>NOWAZA BOUTIQUE</title>
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="css/tiny-slider.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <title>NOWAZA BOUTIQUE</title>
 </head>
 
 <body>
-	<section>
-		<!-- ===== HEADER ===== -->
-		<header class="header">
-
-			<div class="mobile-menu d-block d-sm-none" id="menuBtn">
-				<i class="fas fa-bars"></i>
-			</div>
-			<div class="social-icons">
-				<i class="fab fa-instagram"></i>
-				<i class="fa fa-whatsapp"></i>
-			</div>
-
-			<div class="logo">
-				<a href="index.html"><img src="images/logo.png" alt="Logo" style="width: auto;height: 110px;"></a>
-			</div>
-
-			<div class="header-icons" style="gap: 3px;">
-
-				<i class="fa fa-id-card"></i> <span style="font-size: 14px;">123-456-78</span>
-				<!-- <div class="cart-icon" onclick="openCart()">
-					<i class="fa fa-shopping-bag" style="color: black;"></i>
-					<span id="cartCount">5</span>
-				</div> -->
-			</div>
-
-		</header>
-		<!-- <div class="wrappers">
-			<div class="elements"></div>
-		</div> -->
-		<!-- ===== NAVBAR ===== -->
-		<nav class="navbar" id="navbar">
-			<a href="index.html">Home</a>
-			<a href="#feature">Featured</a>
-			<!-- <a href="#trending">Trending</a> -->
-			<!-- <a href="#exclusive">Exclusive Collection</a> -->
-			<a href="shop.html">Shop</a>
-			<!-- <a href="#">Flash Sale <span class="badge">UPTO 50%</span></a> -->
-			<a href="#about">About Us</a>
-			<a href="contact.html">Contact Us</a>
-		</nav>
-	</section>
-
-	<!-- CART MODAL -->
-	<div id="cartModals" class="cart-modal">
-		<div class="cart-content">
-
-			<!-- HEADER -->
-			<div class="cart-header">
-				<h3>Shopping Cart</h3>
-				<span class="close-btn" onclick="closeCart()">&times;</span>
-			</div>
-
-			<!-- CART ITEMS -->
-			<div class="cart-items">
-
-				<!-- PRODUCT 1 -->
-				<div class="cart-item">
-					<div class="cart-gallery">
-						<img src="images/product/thobe/1.webp" class="main-img">
-					</div>
-
-					<div class="item-info">
-						<h4>Thobe Classic</h4>
-
-						<div class="price-qty">
-							<p class="price">
-								<img src="images/aed.webp"
-									style="height:15px;width:auto;margin-top:-4px;padding-right:2px;" />
-								<span>25.00</span>
-							</p>
-
-							<div class="qty modern-qty">
-								<button onclick="qtyChange(this,-1)">−</button>
-								<span class="qty-num">1</span>
-								<button onclick="qtyChange(this,1)">+</button>
-							</div>
-
-						</div>
-					</div>
-
-
-					<span class="remove" onclick="removeItem(this)">&times;</span>
-				</div>
-
-				<!-- PRODUCT 2 -->
-				<div class="cart-item">
-					<div class="cart-gallery">
-						<img src="images/kh1.webp" class="main-img">
-					</div>
-
-					<div class="item-info">
-						<h4>Thobe Classic</h4>
-
-						<div class="price-qty">
-							<p class="price" id="aed">
-								<img src="images/aed.webp"
-									style="height:15px;width:auto;margin-top:-4px;padding-right:2px;" />
-								<span>25.00</span>
-							</p>
-
-							<div class="qty modern-qty">
-								<button onclick="qtyChange(this,-1)">−</button>
-								<span class="qty-num">1</span>
-								<button onclick="qtyChange(this,1)">+</button>
-							</div>
-
-						</div>
-					</div>
-					<span class="remove" onclick="removeItem(this)">&times;</span>
-				</div>
-			</div>
-
-			<!-- FOOTER -->
-			<div class="cart-footer">
-				<div class="total">
-					<span>Total</span>
-					<strong><img src="images/aed.webp"
-							style="height:12px;width:auto;margin-top:-4px;padding-right:2px;" />25.00</strong>
-				</div>
-				<a id="chechout" href="https://wa.me/+971507135589?text=I'd like to place an order." target="_blank"
-					style="flex:1;">
-					<button class="userlogin-button" style="width:100%;">
-						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black"
-							class="bi bi-bag-heart-fill" viewBox="0 0 16 16">
-							<path
-								d="M11.5 4v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m0 6.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132" />
-						</svg>
-						<span style="font-size:13px;font-weight:700;margin-left:6px;">Checkout</span>
-					</button>
-				</a>
-			</div>
-		</div>
-	</div>
-	<!-- ===== HERO ===== -->
-	<section class="main">
-		<div class="slides">
-			<div class="slide"> <img src="images/BAN1.png" alt="">
-				<div class="main-text">
-					<h2>Ready to wear solids</h2> <button>Shop Now</button>
-				</div>
-			</div>
-			<div class="slide"> <img src="images/BAN2.webp" alt="">
-				<div class="main-text">
-					<h2>New Summer Collection</h2> <button>Explore</button>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	</section>
-	<section class="whats-new">
-
-		<div class="what-container">
-
-			<h2 class="title">WHAT'S NEW</h2>
-
-			<div class="slider">
-
-				<div class="slide-track">
-
-					<div class="item">
-						<img src="images/product/abaya/a-1.jpg">
-					</div>
-
-					<div class="item">
-						<img src="images/product/abaya/a-2.jpg">
-					</div>
-
-					<div class="item">
-						<img src="images/product/abaya/a-3.jpg">
-					</div>
-
-					<div class="item">
-						<img src="images/product/abaya/a-4.jpg">
-					</div>
-
-					<div class="item">
-						<img src="images/product/abaya/a-5.jpg">
-					</div>
-
-					<div class="item">
-						<img src="images/product/abaya/a-6.jpg">
-					</div>
-
-					<div class="item">
-						<img src="images/product/abaya/a-7.jpg">
-					</div>
-
-					<div class="item">
-						<img src="images/product/abaya/a-8.jpg">
-					</div>
-
-					<!-- duplicate for infinite scroll -->
-
-					<div class="item"><img src="images/product/abaya/a-1.jpg">
-						<div class="overlay">Abaya</div>
-					</div>
-					<div class="item"><img src="images/product/abaya/a-2.jpg">
-						<div class="overlay">Modest Wear</div>
-					</div>
-					<div class="item"><img src="images/product/abaya/a-3.jpg">
-						<div class="overlay">Formal</div>
-					</div>
-					<div class="item"><img src="images/product/abaya/a-4.jpg">
-						<div class="overlay">Cotton</div>
-					</div>
-
-				</div>
-
-			</div>
-
-		</div>
-
-	</section>
-
-	<section class="shop-category">
-
-		<div class="section-heading">
-			<span>SHOP BY CATEGORY</span>
-		</div>
-
-		<div class="categories">
-
-			<a href="shop.html#abaya" class="category-card">
-				<img src="images/product/abaya/a-1.jpg">
-				<div class="overlay">
-					<span>Abaya</span>
-				</div>
-			</a>
-
-			<a href="shop.html#modest" class="category-card">
-				<img src="images/product/abaya/a-2.jpg">
-				<div class="overlay">
-					<span>Modest Wear</span>
-				</div>
-			</a>
-
-			<a href="shop.html#ladies" class="category-card">
-				<img src="images/product/abaya/a-3.jpg">
-				<div class="overlay">
-					<span>Ladies Formal</span>
-				</div>
-			</a>
-
-			<a href="shop.html#cotton" class="category-card">
-				<img src="images/product/abaya/a-4.jpg">
-				<div class="overlay">
-					<span>Cotton Salwar</span>
-				</div>
-			</a>
-
-			<a href="shop.html#coord" class="category-card">
-				<img src="images/product/abaya/a-5.jpg">
-				<div class="overlay">
-					<span>Co-Ord Set</span>
-				</div>
-			</a>
-
-			<a href="shop.html#prayer" class="category-card">
-				<img src="images/product/abaya/a-6.jpg">
-				<div class="overlay">
-					<span>Prayer Dress</span>
-				</div>
-			</a>
-
-			<a href="shop.html#hijab" class="category-card">
-				<img src="images/product/abaya/a-7.jpg">
-				<div class="overlay">
-					<span>Hijab</span>
-				</div>
-			</a>
-
-			<a href="shop.html#girls" class="category-card">
-				<img src="images/product/abaya/a-8.jpg">
-				<div class="overlay">
-					<span>Girls Section</span>
-				</div>
-			</a>
-
-		</div>
-
-	</section>
-
-
-	<section class="padding-cho" id="about">
-		<div class="why-choose-section">
-			<div class="container">
-				<div class="row justify-content-between">
-					<div class="col-lg-6">
-						<h2 class="section-title">Why Choose Nowaza Boutique</h2>
-						<p>Nowaza Boutique brings you elegant fashion collections with premium quality fabrics and
-							modern styles designed for today's fashion lovers.</p>
-
-						<div class="row my-5">
-							<div class="col-6 col-md-6">
-								<div class="feature">
-									<div class="icon">
-										<img src="images/truck.svg" alt="Image" class="imf-fluid">
-									</div>
-									<h3>Fast Delivery</h3>
-									<p>We provide quick and reliable delivery so you can enjoy your favorite fashion
-										items without waiting.</p>
-								</div>
-							</div>
-
-							<div class="col-6 col-md-6">
-								<div class="feature">
-									<div class="icon">
-										<img src="images/bag.svg" alt="Image" class="imf-fluid">
-									</div>
-									<h3>Easy Shopping</h3>
-									<p>Our boutique makes shopping simple and enjoyable with a smooth and comfortable
-										browsing experience.</p>
-								</div>
-							</div>
-
-							<div class="col-6 col-md-6">
-								<div class="feature">
-									<div class="icon">
-										<img src="images/support.svg" alt="Image" class="imf-fluid">
-									</div>
-									<h3>24/7 Support</h3>
-									<p>Our support team is always ready to assist you with your orders and fashion
-										inquiries anytime.</p>
-								</div>
-							</div>
-
-							<div class="col-6 col-md-6">
-								<div class="feature">
-									<div class="icon">
-										<img src="images/return.svg" alt="Image" class="imf-fluid">
-									</div>
-									<h3>Easy Returns</h3>
-									<p>Shop with confidence at Nowaza Boutique with our simple and hassle-free return
-										policy.</p>
-								</div>
-							</div>
-
-						</div>
-					</div>
-
-					<div class="col-lg-5">
-						<div class="img-wrap">
-							<img src="images/why.webp" alt="Image" class="img-fluid">
-						</div>
-					</div>
-
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="feature-section" id="feature">
-
-		<div class="trending-title">
-
-			<div class="line"></div>
-
-			<div class="title-text">
-				<h2>FEATURED PRODUCTS</h2>
-				<!-- <p>DISCOVER THE BEST-SELLING STYLES</p> -->
-			</div>
-
-			<div class="line"></div>
-
-		</div>
-
-		<div class="swiper trending-slider" onclick="window.location.href='shop.html'" style="cursor: pointer;">
-
-			<div class="swiper-wrapper" onclick="window.location.href='shop.html'" style="cursor: pointer;">
-
-				<!-- PRODUCT 1 -->
-				<div class="swiper-slide">
-					<div class="product-card">
-
-						<div class="product-img">
+    <section>
+        <!-- ===== HEADER ===== -->
+        <header class="header">
+
+            <div class="mobile-menu d-block d-sm-none" id="menuBtn">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="social-icons">
+                <i class="fab fa-instagram"></i>
+                <i class="fa fa-whatsapp"></i>
+            </div>
+
+            <div class="logo">
+                <a href="index.html"><img src="images/logo.png" alt="Logo" style="width: auto;height: 110px;"></a>
+            </div>
+
+            <div class="header-icons" style="gap: 3px;">
+
+                <i class="fa fa-id-card"></i> <span style="font-size: 14px;">123-456-78</span>
+
+            </div>
+
+        </header>
+        <!-- ===== NAVBAR ===== -->
+        <nav class="navbar" id="navbar">
+            <a href="index.html">Home</a>
+            <a href="#feature">Featured</a>
+            <!-- <a href="#trending">Trending</a> -->
+            <!-- <a href="#exclusive">Exclusive Collection</a> -->
+            <a href="shop.html">Shop</a>
+            <!-- <a href="#">Flash Sale <span class="badge">UPTO 50%</span></a> -->
+            <a href="#about">About Us</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+    </section>
+
+    <!-- CART MODAL -->
+    <div id="cartModals" class="cart-modal">
+        <div class="cart-content">
+
+            <!-- HEADER -->
+            <div class="cart-header">
+                <h3>Shopping Cart</h3>
+                <span class="close-btn" onclick="closeCart()">&times;</span>
+            </div>
+
+            <!-- CART ITEMS -->
+            <div class="cart-items">
+            </div>
+
+            <!-- FOOTER -->
+            <div class="cart-footer">
+                <div class="total">
+                    <span>Total</span>
+                    <strong><img src="images/aed.webp"
+                            style="height:12px;width:auto;margin-top:-4px;padding-right:2px;" />25.00</strong>
+                </div>
+                <a id="chechout" href="https://wa.me/+971507135589?text=I'd like to place an order." target="_blank"
+                    style="flex:1;">
+                    <button class="userlogin-button" style="width:100%;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black"
+                            class="bi bi-bag-heart-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M11.5 4v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m0 6.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132" />
+                        </svg>
+                        <span style="font-size:13px;font-weight:700;margin-left:6px;">Checkout</span>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- ===== HERO ===== -->
+    <section class="main">
+        <div class="slides">
+            <div class="slide"> <img src="images/BAN1.png" alt="">
+                <div class="main-text">
+                    <h2>Ready to wear solids</h2> <button>Shop Now</button>
+                </div>
+            </div>
+            <div class="slide"> <img src="images/BAN2.webp" alt="">
+                <div class="main-text">
+                    <h2>New Summer Collection</h2> <button>Explore</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </section>
+    <section class="whats-new">
+
+        <div class="what-container">
+
+            <h2 class="title">WHAT'S NEW</h2>
+
+            <div class="slider">
+
+                <div class="slide-track">
+
+                    <div class="item">
+                        <img src="images/product/abaya/a-1.jpg">
+                    </div>
+
+                    <div class="item">
+                        <img src="images/product/abaya/a-2.jpg">
+                    </div>
+
+                    <div class="item">
+                        <img src="images/product/abaya/a-3.jpg">
+                    </div>
+
+                    <div class="item">
+                        <img src="images/product/abaya/a-4.jpg">
+                    </div>
+
+                    <div class="item">
+                        <img src="images/product/abaya/a-5.jpg">
+                    </div>
+
+                    <div class="item">
+                        <img src="images/product/abaya/a-6.jpg">
+                    </div>
+
+                    <div class="item">
+                        <img src="images/product/abaya/a-7.jpg">
+                    </div>
+
+                    <div class="item">
+                        <img src="images/product/abaya/a-8.jpg">
+                    </div>
+
+                    <!-- duplicate for infinite scroll -->
+
+                    <div class="item"><img src="images/product/abaya/a-1.jpg">
+                        <div class="overlay">Abaya</div>
+                    </div>
+                    <div class="item"><img src="images/product/abaya/a-2.jpg">
+                        <div class="overlay">Modest Wear</div>
+                    </div>
+                    <div class="item"><img src="images/product/abaya/a-3.jpg">
+                        <div class="overlay">Formal</div>
+                    </div>
+                    <div class="item"><img src="images/product/abaya/a-4.jpg">
+                        <div class="overlay">Cotton</div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="shop-category">
+
+        <div class="section-heading">
+            <span>SHOP BY CATEGORY</span>
+        </div>
+
+        <div class="categories">
+
+            <a href="shop.html#abaya" class="category-card">
+                <img src="images/product/abaya/a-1.jpg">
+                <div class="overlay">
+                    <span>Abaya</span>
+                </div>
+            </a>
+
+            <a href="shop.html#modest_wear" class="category-card">
+                <img src="images/product/abaya/a-2.jpg">
+                <div class="overlay">
+                    <span>Modest Wear</span>
+                </div>
+            </a>
+
+            <a href="shop.html#ladies_formal" class="category-card">
+                <img src="images/product/abaya/a-3.jpg">
+                <div class="overlay">
+                    <span>Ladies Formal</span>
+                </div>
+            </a>
+
+            <a href="shop.html#cotton_salwar" class="category-card">
+                <img src="images/product/abaya/a-4.jpg">
+                <div class="overlay">
+                    <span>Cotton Salwar</span>
+                </div>
+            </a>
+
+            <a href="shop.html#co_ord_set" class="category-card">
+                <img src="images/product/abaya/a-5.jpg">
+                <div class="overlay">
+                    <span>Co-Ord Set</span>
+                </div>
+            </a>
+
+            <a href="shop.html#prayer_dress" class="category-card">
+                <img src="images/product/abaya/a-6.jpg">
+                <div class="overlay">
+                    <span>Prayer Dress</span>
+                </div>
+            </a>
+
+            <a href="shop.html#hijab" class="category-card">
+                <img src="images/product/abaya/a-7.jpg">
+                <div class="overlay">
+                    <span>Hijab</span>
+                </div>
+            </a>
+
+            <a href="shop.html#girls" class="category-card">
+                <img src="images/product/abaya/a-8.jpg">
+                <div class="overlay">
+                    <span>Girls Section</span>
+                </div>
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <section class="padding-cho" id="about">
+        <div class="why-choose-section">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-lg-6">
+                        <h2 class="section-title">Why Choose Nowaza Boutique</h2>
+                        <p>Nowaza Boutique brings you elegant fashion collections with premium quality fabrics and
+                            modern styles designed for today's fashion lovers.</p>
+
+                        <div class="row my-5">
+                            <div class="col-6 col-md-6">
+                                <div class="feature">
+                                    <div class="icon">
+                                        <img src="images/truck.svg" alt="Image" class="imf-fluid">
+                                    </div>
+                                    <h3>Fast Delivery</h3>
+                                    <p>We provide quick and reliable delivery so you can enjoy your favorite fashion
+                                        items without waiting.</p>
+                                </div>
+                            </div>
+
+                            <div class="col-6 col-md-6">
+                                <div class="feature">
+                                    <div class="icon">
+                                        <img src="images/bag.svg" alt="Image" class="imf-fluid">
+                                    </div>
+                                    <h3>Easy Shopping</h3>
+                                    <p>Our boutique makes shopping simple and enjoyable with a smooth and comfortable
+                                        browsing experience.</p>
+                                </div>
+                            </div>
+
+                            <div class="col-6 col-md-6">
+                                <div class="feature">
+                                    <div class="icon">
+                                        <img src="images/support.svg" alt="Image" class="imf-fluid">
+                                    </div>
+                                    <h3>24/7 Support</h3>
+                                    <p>Our support team is always ready to assist you with your orders and fashion
+                                        inquiries anytime.</p>
+                                </div>
+                            </div>
 
-							<img src="images/p1.webp">
-
-							<!--<span class="badge sale">-50%</span> -->
-							<!-- <span class="badge sold">Sold out</span> -->
-
-						</div>
+                            <div class="col-6 col-md-6">
+                                <div class="feature">
+                                    <div class="icon">
+                                        <img src="images/return.svg" alt="Image" class="imf-fluid">
+                                    </div>
+                                    <h3>Easy Returns</h3>
+                                    <p>Shop with confidence at Nowaza Boutique with our simple and hassle-free return
+                                        policy.</p>
+                                </div>
+                            </div>
 
-						<div class="product-info">
+                        </div>
+                    </div>
 
-							<h3>3-PIECE Khaddar Printed Dress</h3>
+                    <div class="col-lg-5">
+                        <div class="img-wrap">
+                            <img src="images/why.webp" alt="Image" class="img-fluid">
+                        </div>
+                    </div>
 
-							<div class="price">
-								<span class="old">$56.00 USD</span>
-								<span class="new">$28.00 USD</span>
-							</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-						</div>
+    <section class="feature-section" id="feature">
 
-					</div>
-				</div>
+        <div class="trending-title">
 
+            <div class="line"></div>
 
-				<!-- PRODUCT 2 -->
-				<div class="swiper-slide">
-					<div class="product-card">
+            <div class="title-text">
+                <h2>FEATURED PRODUCTS</h2>
+                <!-- <p>DISCOVER THE BEST-SELLING STYLES</p> -->
+            </div>
 
-						<div class="product-img">
+            <div class="line"></div>
 
-							<img src="images/p2.webp">
+        </div>
 
-							<!-- <span class="badge sale">-50%</span> -->
+        <div class="swiper trending-slider" onclick="window.location.href='shop.html'" style="cursor: pointer;">
 
-						</div>
+            <div class="swiper-wrapper" onclick="window.location.href='shop.html'" style="cursor: pointer;">
 
-						<div class="product-info">
+                <!-- PRODUCT 1 -->
+                <div class="swiper-slide">
+                    <div class="product-card">
 
-							<h3>3-PIECE Khaddar Printed Dress</h3>
+                        <div class="product-img">
 
-							<div class="price">
-								<span class="old">$56.00 USD</span>
-								<span class="new">$28.00 USD</span>
-							</div>
+                            <img src="images/p1.webp">
 
-						</div>
+                            <!--<span class="badge sale">-50%</span> -->
+                            <!-- <span class="badge sold">Sold out</span> -->
 
-					</div>
-				</div>
+                        </div>
 
+                        <div class="product-info">
 
-				<!-- PRODUCT 3 -->
-				<div class="swiper-slide">
-					<div class="product-card">
+                            <h3>3-PIECE Khaddar Printed Dress</h3>
 
-						<div class="product-img">
+                            <div class="price">
+                                <span class="old">$56.00 USD</span>
+                                <span class="new">$28.00 USD</span>
+                            </div>
 
-							<img src="images/p3.webp">
+                        </div>
 
-							<!-- <span class="badge sold">Sold out</span> -->
+                    </div>
+                </div>
 
-						</div>
 
-						<div class="product-info">
+                <!-- PRODUCT 2 -->
+                <div class="swiper-slide">
+                    <div class="product-card">
 
-							<h3>3-PIECE Khaddar Printed Dress</h3>
+                        <div class="product-img">
 
-							<div class="price">
-								<span class="old">$56.00 USD</span>
-								<span class="new">$28.00 USD</span>
-							</div>
+                            <img src="images/p2.webp">
 
-						</div>
+                            <!-- <span class="badge sale">-50%</span> -->
 
-					</div>
-				</div>
+                        </div>
 
+                        <div class="product-info">
 
-				<!-- PRODUCT 4 -->
-				<div class="swiper-slide">
-					<div class="product-card">
+                            <h3>3-PIECE Khaddar Printed Dress</h3>
 
-						<div class="product-img">
+                            <div class="price">
+                                <span class="old">$56.00 USD</span>
+                                <span class="new">$28.00 USD</span>
+                            </div>
 
-							<img src="images/p4.webp">
+                        </div>
 
-							<!-- <span class="badge sale">-50%</span> -->
+                    </div>
+                </div>
 
-						</div>
 
-						<div class="product-info">
+                <!-- PRODUCT 3 -->
+                <div class="swiper-slide">
+                    <div class="product-card">
 
-							<h3>3-PIECE Khaddar Printed Dress</h3>
+                        <div class="product-img">
 
-							<div class="price">
-								<span class="old">$56.00 USD</span>
-								<span class="new">$28.00 USD</span>
-							</div>
+                            <img src="images/p3.webp">
 
-						</div>
+                            <!-- <span class="badge sold">Sold out</span> -->
 
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="product-card">
+                        </div>
 
-						<div class="product-img">
+                        <div class="product-info">
 
-							<img src="images/p4.webp">
+                            <h3>3-PIECE Khaddar Printed Dress</h3>
 
-							<!-- <span class="badge sale">-50%</span> -->
+                            <div class="price">
+                                <span class="old">$56.00 USD</span>
+                                <span class="new">$28.00 USD</span>
+                            </div>
 
-						</div>
+                        </div>
 
-						<div class="product-info">
+                    </div>
+                </div>
 
-							<h3>3-PIECE Khaddar Printed Dress</h3>
 
-							<div class="price">
-								<span class="old">$56.00 USD</span>
-								<span class="new">$28.00 USD</span>
-							</div>
+                <!-- PRODUCT 4 -->
+                <div class="swiper-slide">
+                    <div class="product-card">
 
-						</div>
+                        <div class="product-img">
 
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="product-card">
+                            <img src="images/p4.webp">
 
-						<div class="product-img">
+                            <!-- <span class="badge sale">-50%</span> -->
 
-							<img src="images/p4.webp">
+                        </div>
 
-							<!-- <span class="badge sale">-50%</span> -->
+                        <div class="product-info">
 
-						</div>
+                            <h3>3-PIECE Khaddar Printed Dress</h3>
 
-						<div class="product-info">
+                            <div class="price">
+                                <span class="old">$56.00 USD</span>
+                                <span class="new">$28.00 USD</span>
+                            </div>
 
-							<h3>3-PIECE Khaddar Printed Dress</h3>
+                        </div>
 
-							<div class="price">
-								<span class="old">$56.00 USD</span>
-								<span class="new">$28.00 USD</span>
-							</div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="product-card">
 
-						</div>
+                        <div class="product-img">
 
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="product-card">
+                            <img src="images/p4.webp">
 
-						<div class="product-img">
+                            <!-- <span class="badge sale">-50%</span> -->
 
-							<img src="images/p4.webp">
+                        </div>
 
-							<!-- <span class="badge sale">-50%</span> -->
+                        <div class="product-info">
 
-						</div>
+                            <h3>3-PIECE Khaddar Printed Dress</h3>
 
-						<div class="product-info">
+                            <div class="price">
+                                <span class="old">$56.00 USD</span>
+                                <span class="new">$28.00 USD</span>
+                            </div>
 
-							<h3>3-PIECE Khaddar Printed Dress</h3>
+                        </div>
 
-							<div class="price">
-								<span class="old">$56.00 USD</span>
-								<span class="new">$28.00 USD</span>
-							</div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="product-card">
 
-						</div>
+                        <div class="product-img">
 
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="product-card">
+                            <img src="images/p4.webp">
 
-						<div class="product-img">
+                            <!-- <span class="badge sale">-50%</span> -->
 
-							<img src="images/p4.webp">
+                        </div>
 
-							<!-- <span class="badge sale">-50%</span> -->
+                        <div class="product-info">
 
-						</div>
+                            <h3>3-PIECE Khaddar Printed Dress</h3>
 
-						<div class="product-info">
+                            <div class="price">
+                                <span class="old">$56.00 USD</span>
+                                <span class="new">$28.00 USD</span>
+                            </div>
 
-							<h3>3-PIECE Khaddar Printed Dress</h3>
+                        </div>
 
-							<div class="price">
-								<span class="old">$56.00 USD</span>
-								<span class="new">$28.00 USD</span>
-							</div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="product-card">
 
-						</div>
+                        <div class="product-img">
 
-					</div>
-				</div>
+                            <img src="images/p4.webp">
 
-			</div>
-		</div>
+                            <!-- <span class="badge sale">-50%</span> -->
 
-	</section>
+                        </div>
 
+                        <div class="product-info">
 
-	<section class="fusionStyledWrap">
+                            <h3>3-PIECE Khaddar Printed Dress</h3>
 
-		<h2 class="fusionStyledTitle">STYLED BY YOU</h2>
-		<p class="fusionStyledSub">#cultural Fusion</p>
+                            <div class="price">
+                                <span class="old">$56.00 USD</span>
+                                <span class="new">$28.00 USD</span>
+                            </div>
 
-		<div class="fusionSliderOuter">
+                        </div>
 
-			<div class="fusionSliderTrack">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="product-card">
 
-				<div class="fusionCard">
-					<img src="images/sh4.webp">
-					<h4>Sahar Hashmi</h4>
-					<p>Wearing Our Printed Floral Dress</p>
-				</div>
+                        <div class="product-img">
 
-				<div class="fusionCard">
-					<img src="images/sh4.webp">
-					<h4>Muniba Mazari</h4>
-					<p>Wearing Our Printed Floral Dress</p>
-				</div>
+                            <img src="images/p4.webp">
 
-				<div class="fusionCard">
-					<img src="images/sh4.webp">
-					<h4>Kinza Hashmi</h4>
-					<p>Wearing Our Premium Lawn Dress</p>
-				</div>
+                            <!-- <span class="badge sale">-50%</span> -->
 
-				<div class="fusionCard">
-					<img src="images/sh4.webp">
-					<h4>Laiba Khurram</h4>
-					<p>Wearing Our Luxurious Solid</p>
-				</div>
+                        </div>
 
-				<div class="fusionCard">
-					<img src="images/sh4.webp">
-					<h4>Hina Khan</h4>
-					<p>Wearing Our White Floral Dress</p>
-				</div>
+                        <div class="product-info">
 
-				<!-- duplicate for infinite effect -->
+                            <h3>3-PIECE Khaddar Printed Dress</h3>
 
-				<div class="fusionCard">
-					<img src="images/sh4.webp">
-					<h4>Sahar Hashmi</h4>
-					<p>Wearing Our Printed Floral Dress</p>
-				</div>
+                            <div class="price">
+                                <span class="old">$56.00 USD</span>
+                                <span class="new">$28.00 USD</span>
+                            </div>
 
-				<div class="fusionCard">
-					<img src="images/sh4.webp">
-					<h4>Muniba Mazari</h4>
-					<p>Wearing Our Printed Floral Dress</p>
-				</div>
+                        </div>
 
-				<div class="fusionCard">
-					<img src="images/sh4.webp">
-					<h4>Kinza Hashmi</h4>
-					<p>Wearing Our Premium Lawn Dress</p>
-				</div>
+                    </div>
+                </div>
 
-				<div class="fusionCard">
-					<img src="images/sh4.webp">
-					<h4>Laiba Khurram</h4>
-					<p>Wearing Our Luxurious Solid</p>
-				</div>
+            </div>
+        </div>
 
-				<div class="fusionCard">
-					<img src="images/sh4.webp">
-					<h4>Hina Khan</h4>
-					<p>Wearing Our White Floral Dress</p>
-				</div>
+    </section>
 
-			</div>
-		</div>
 
-	</section>
+    <section class="fusionStyledWrap">
 
-	<!--==========================
+        <h2 class="fusionStyledTitle">STYLED BY YOU</h2>
+        <p class="fusionStyledSub">#cultural Fusion</p>
+
+        <div class="fusionSliderOuter">
+
+            <div class="fusionSliderTrack">
+
+                <div class="fusionCard">
+                    <img src="images/sh4.webp">
+                    <h4>Sahar Hashmi</h4>
+                    <p>Wearing Our Printed Floral Dress</p>
+                </div>
+
+                <div class="fusionCard">
+                    <img src="images/sh4.webp">
+                    <h4>Muniba Mazari</h4>
+                    <p>Wearing Our Printed Floral Dress</p>
+                </div>
+
+                <div class="fusionCard">
+                    <img src="images/sh4.webp">
+                    <h4>Kinza Hashmi</h4>
+                    <p>Wearing Our Premium Lawn Dress</p>
+                </div>
+
+                <div class="fusionCard">
+                    <img src="images/sh4.webp">
+                    <h4>Laiba Khurram</h4>
+                    <p>Wearing Our Luxurious Solid</p>
+                </div>
+
+                <div class="fusionCard">
+                    <img src="images/sh4.webp">
+                    <h4>Hina Khan</h4>
+                    <p>Wearing Our White Floral Dress</p>
+                </div>
+
+                <!-- duplicate for infinite effect -->
+
+                <div class="fusionCard">
+                    <img src="images/sh4.webp">
+                    <h4>Sahar Hashmi</h4>
+                    <p>Wearing Our Printed Floral Dress</p>
+                </div>
+
+                <div class="fusionCard">
+                    <img src="images/sh4.webp">
+                    <h4>Muniba Mazari</h4>
+                    <p>Wearing Our Printed Floral Dress</p>
+                </div>
+
+                <div class="fusionCard">
+                    <img src="images/sh4.webp">
+                    <h4>Kinza Hashmi</h4>
+                    <p>Wearing Our Premium Lawn Dress</p>
+                </div>
+
+                <div class="fusionCard">
+                    <img src="images/sh4.webp">
+                    <h4>Laiba Khurram</h4>
+                    <p>Wearing Our Luxurious Solid</p>
+                </div>
+
+                <div class="fusionCard">
+                    <img src="images/sh4.webp">
+                    <h4>Hina Khan</h4>
+                    <p>Wearing Our White Floral Dress</p>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!--==========================
     Footer
   ============================-->
-	<footer id="footer">
-		<div class="footer-top">
-			<div class="container">
-				<div class="row">
+    <footer id="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
 
-					<div class="col-lg-3 col-md-6 footer-info">
-						<a href="#intro"><img src="images/logo2.png" alt="" title=""
-								style="height:100px;width: auto;" /></a>
-						<!-- <p class="pt-2">With experience in garment trading for more than a decade, NOWAZA Garments are
+                    <div class="col-lg-3 col-md-6 footer-info">
+                        <a href="#intro"><img src="images/logo2.png" alt="" title=""
+                                style="height:100px;width: auto;" /></a>
+                        <!-- <p class="pt-2">With experience in garment trading for more than a decade, NOWAZA Garments are
 							comfortable
 							clothing that becomes your second skin.</p> -->
-					</div>
+                    </div>
 
-					<div class="col-lg-3 col-md-6 footer-links">
-						<h4>Useful Links</h4>
-						<ul>
-							<li><i class="bi bi-chevron-right"></i> <a href="index.html">Home</a></li>
-							<li><i class="bi bi-chevron-right"></i> <a href="#about">About us</a></li>
-							<li><i class="bi bi-chevron-right"></i> <a href="shop.html">Products</a></li>
-							<!-- <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li> -->
-							<!-- <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li> -->
-						</ul>
-					</div>
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Useful Links</h4>
+                        <ul>
+                            <li><i class="bi bi-chevron-right"></i> <a href="index.html">Home</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="#about">About us</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="shop.html">Products</a></li>
+                            <!-- <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li> -->
+                            <!-- <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li> -->
+                        </ul>
+                    </div>
 
-					<div class="col-lg-3 col-md-6 footer-contact ">
-						<h4>Contact Us</h4>
-						<p><img src="images/app/address.webp" alt=""
-								style="height: 18px;width: auto; padding-right: 5px;" />
-							Murshid Bazar, Near Gold Souq <br>Gate No.1 Opp Belhoul Masjid,<br>Deira, Dubai - UAE
-							<br>
-							<strong><img src="images/app/call.webp" alt=""
-									style="height: 18px;width: auto; padding-right: 5px;" /></strong>+971507135589<br>
-							<strong><img src="images/app/email.webp" alt=""
-									style="height: 18px;width: auto; padding-right: 5px;" /></strong>admin@ttgulf.ae<br>
-						</p>
+                    <div class="col-lg-3 col-md-6 footer-contact ">
+                        <h4>Contact Us</h4>
+                        <p><img src="images/app/address.webp" alt=""
+                                style="height: 18px;width: auto; padding-right: 5px;" />
+                            Murshid Bazar, Near Gold Souq <br>Gate No.1 Opp Belhoul Masjid,<br>Deira, Dubai - UAE
+                            <br>
+                            <strong><img src="images/app/call.webp" alt=""
+                                    style="height: 18px;width: auto; padding-right: 5px;" /></strong>+971507135589<br>
+                            <strong><img src="images/app/email.webp" alt=""
+                                    style="height: 18px;width: auto; padding-right: 5px;" /></strong>admin@ttgulf.ae<br>
+                        </p>
 
-						<div class="social-links">
-							<!-- <a class="twitter"><i class="f fa-twitter"></i></a> -->
-							<a href=" https://www.facebook.com/NOWAZA.gcc/" class="facebook" target="_blank"><i
-									class="fa fa-facebook"></i></a>
-							<a href="https://www.instagram.com/NOWAZA.gcc/" class="instagram" target="_blank"><i
-									class="fa fa-instagram"></i></a>
-							<!-- <a href="" class="instagram"><i class="bi bi-instagram"></i></a> -->
-							<a href="https://www.tiktok.com/@NOWAZA.gcc/" class="linkedin" target="_blank"><svg
-									xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-									class="bi bi-tiktok" viewBox="0 0 16 16">
-									<path
-										d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z" />
-								</svg></a>
-						</div>
+                        <div class="social-links">
+                            <!-- <a class="twitter"><i class="f fa-twitter"></i></a> -->
+                            <a href=" https://www.facebook.com/NOWAZA.gcc/" class="facebook" target="_blank"><i
+                                    class="fa fa-facebook"></i></a>
+                            <a href="https://www.instagram.com/NOWAZA.gcc/" class="instagram" target="_blank"><i
+                                    class="fa fa-instagram"></i></a>
+                            <!-- <a href="" class="instagram"><i class="bi bi-instagram"></i></a> -->
+                            <a href="https://www.tiktok.com/@NOWAZA.gcc/" class="linkedin" target="_blank"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-tiktok" viewBox="0 0 16 16">
+                                    <path
+                                        d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z" />
+                                </svg></a>
+                        </div>
 
-					</div>
+                    </div>
 
-					<div class="col-lg-3 col-md-6 footer-links">
-						<h4>Location</h4>
-						<iframe
-							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3583.877185657216!2d55.43551827525452!3d25.29201812785377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5f9a8f55012b%3A0xd96ee2009a178f30!2sTreasure%20Tower%20General%20Trading!5e1!3m2!1sen!2sin!4v1765609875878!5m2!1sen!2sin"
-							style="border:0; width: 100%; height: 200px;border-radius: 30px" allowfullscreen=""
-							loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-					</div>
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Location</h4>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3583.877185657216!2d55.43551827525452!3d25.29201812785377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5f9a8f55012b%3A0xd96ee2009a178f30!2sTreasure%20Tower%20General%20Trading!5e1!3m2!1sen!2sin!4v1765609875878!5m2!1sen!2sin"
+                            style="border:0; width: 100%; height: 200px;border-radius: 30px" allowfullscreen=""
+                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
 
-				</div>
-			</div>
-		</div>
+                </div>
+            </div>
+        </div>
 
-		<div class="container">
-			<div class="copyright">
-				&copy; Copyright <strong>NOWAZA</strong>. All Rights Reserved
-			</div>
-			<div class="credits" style="color: white;">
-				Developed by <a class="instagram" href="https://faisan333.github.io/Faisan.github.io/" target="_blank">
-					<!-- <i class="bi bi-instagram" style="width:16px;height:16px;color:#C13584;"></i> -->
-					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#D4AF37"
-						class="bi bi-code-square" viewBox="0 0 16 16">
-						<path
-							d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
-						<path
-							d="M6.854 4.646a.5.5 0 0 1 0 .708L4.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0m2.292 0a.5.5 0 0 0 0 .708L11.793 8l-2.647 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708 0" />
-					</svg>
-				</a>
-			</div>
-		</div>
-	</footer>
-	<!-- #footer -->
+        <div class="container">
+            <div class="copyright">
+                &copy; Copyright <strong>NOWAZA</strong>. All Rights Reserved
+            </div>
+            <div class="credits" style="color: white;">
+                Developed by <a class="instagram" href="https://faisan333.github.io/Faisan.github.io/" target="_blank">
+                    <!-- <i class="bi bi-instagram" style="width:16px;height:16px;color:#C13584;"></i> -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#D4AF37"
+                        class="bi bi-code-square" viewBox="0 0 16 16">
+                        <path
+                            d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
+                        <path
+                            d="M6.854 4.646a.5.5 0 0 1 0 .708L4.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0m2.292 0a.5.5 0 0 0 0 .708L11.793 8l-2.647 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708 0" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+    <!-- #footer -->
 
-	<!-- WhatsApp Button -->
-	<div class="wa__btn_popup" id="wa_button">
+    <!-- WhatsApp Button -->
+    <div class="wa__btn_popup" id="wa_button">
 
-		<div class="wa__btn_popup_txt">
-			Need help?<strong> Contact us</strong>
-		</div>
+        <div class="wa__btn_popup_txt">
+            Need help?<strong> Contact us</strong>
+        </div>
 
-		<div class="wa__btn_popup_icon">
-			<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
-		</div>
+        <div class="wa__btn_popup_icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+        </div>
 
-	</div>
-
-
-	<!-- WhatsApp Popup -->
-	<div class="wa__popup_chat_box" id="wa_popup">
-
-		<div class="wa__popup_heading">
-			<div class="wa__popup_title">Questions? Doubts?</div>
-			<div class="wa__popup_intro">Chat with us on <strong>WhatsApp</strong></div>
-		</div>
-
-		<div class="wa__popup_content">
-
-			<div class="wa__popup_notice">
-				We usually reply within minutes.
-			</div>
-
-			<div class="wa__popup_content_list">
-
-				<div class="wa__popup_content_item">
-
-					<a target="_blank" href="https://wa.me/?text=Hello%20I%20need%20help">
-
-						<div class="wa__popup_avatar">
-							<img src="images/logo.png" alt="Avatar">
-						</div>
-
-						<div>
-							<div class="wa__member_name">Nowaza</div>
-							<div class="wa__member_duty">Support Team</div>
-						</div>
-
-					</a>
-
-				</div>
-
-			</div>
-
-		</div>
-	</div>
+    </div>
 
 
+    <!-- WhatsApp Popup -->
+    <div class="wa__popup_chat_box" id="wa_popup">
 
-	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-	<script src="js/bootstrap.bundle.min.js"></script>
-	<script src="js/tiny-slider.js"></script>
-	<script src="js/custom.js"></script>
-	<script src="js/style.js"></script>
-	<script src="shop/js/shop.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <div class="wa__popup_heading">
+            <div class="wa__popup_title">Questions? Doubts?</div>
+            <div class="wa__popup_intro">Chat with us on <strong>WhatsApp</strong></div>
+        </div>
+
+        <div class="wa__popup_content">
+
+            <div class="wa__popup_notice">
+                We usually reply within minutes.
+            </div>
+
+            <div class="wa__popup_content_list">
+
+                <div class="wa__popup_content_item">
+
+                    <a target="_blank" href="https://wa.me/?text=Hello%20I%20need%20help">
+
+                        <div class="wa__popup_avatar">
+                            <img src="images/logo.png" alt="Avatar">
+                        </div>
+
+                        <div>
+                            <div class="wa__member_name">Nowaza</div>
+                            <div class="wa__member_duty">Support Team</div>
+                        </div>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/tiny-slider.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/style.js"></script>
+    <script src="shop/js/shop.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 </body>
 

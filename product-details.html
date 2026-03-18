@@ -18,13 +18,12 @@
     <link href="css/tiny-slider.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
-    <!-- <link href="shop/css/shop.css" rel="stylesheet"> -->
     <link href="css/product-detail.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
     <title>NOWAZA BOUTIQUE</title>
 </head>
 
-<body>
+<body onload="load_item_details()">
     <section>
         <!-- ===== HEADER ===== -->
         <header class="header">
@@ -44,24 +43,15 @@
             <div class="header-icons">
                 <i class="fab fa-instagram"></i>
                 <div class="cart-icon" onclick="open_cart_popup()">
-					<i class="fa fa-shopping-bag" style="color: black;"></i>
-					<span id="cartCount">5</span>
-				</div>
+                    <i class="fa fa-shopping-bag" style="color: black;"></i>
+                    <span id="cartCount">1</span>
+                </div>
             </div>
 
         </header>
-        <!-- <div class="wrappers">
-			<div class="elements"></div>
-		</div> -->
         <!-- ===== NAVBAR ===== -->
         <nav class="navbar" id="navbar">
             <a href="index.html">Home</a>
-            <!-- <a href="#">Printed</a>
-			<a href="#">Solids</a> -->
-            <!-- <a href="#">Exclusive Collection</a> -->
-            <!-- <a href="#">Accessories</a> -->
-            <!-- <a href="#">Flash Sale <span class="badge">UPTO 50%</span></a> -->
-            <!-- <a href="">About Us</a> -->
             <a href="shop.html">Products</a>
             <a href="contact.html">Contact Us</a>
         </nav>
@@ -69,170 +59,51 @@
     <!-- ===== Product Details ===== -->
 
     <!-- CART MODAL -->
-	<div id="cartModal" class="cart-modal">
-		<div class="cart-content">
+    <div id="cartModal" class="cart-modal">
+        <div class="cart-content">
 
-			<!-- HEADER -->
-			<div class="cart-header">
-				<h3>Shopping Cart</h3>
-				<span class="close-btn" onclick="closeCart()">&times;</span>
-			</div>
+            <!-- HEADER -->
+            <div class="cart-header">
+                <h3>Shopping Cart</h3>
+                <span class="close-btn" onclick="closeCart()">&times;</span>
+            </div>
 
-			<!-- CART ITEMS -->
-			<div class="cart-items">
+            <!-- CART ITEMS -->
+            <div class="cart-items">
+            </div>
 
-				<!-- PRODUCT 1 -->
-				<div class="cart-item">
-					<div class="cart-gallery">
-						<img src="images/product/abaya/a-8.jpg" class="main-img">
-					</div>
-
-					<div class="item-info">
-						<h4>Abaya</h4>
-
-						<div class="price-qty">
-							<p class="price">
-								<img src="images/aed.webp"
-									style="height:15px;width:auto;margin-top:-4px;padding-right:2px;" />
-								<span>25.00</span>
-							</p>
-
-							<div class="qty modern-qty">
-								<button onclick="qtyChange(this,-1)">−</button>
-								<span class="qty-num">1</span>
-								<button onclick="qtyChange(this,1)">+</button>
-							</div>
-
-						</div>
-					</div>
-
-
-					<span class="remove" onclick="removeItem(this)">&times;</span>
-				</div>
-
-				<!-- PRODUCT 2 -->
-				<div class="cart-item">
-					<div class="cart-gallery">
-						<img src="images/product/abaya/a-5.jpg" class="main-img">
-					</div>
-
-					<div class="item-info">
-						<h4>Abaya</h4>
-
-						<div class="price-qty">
-							<p class="price" id="aed">
-								<img src="images/aed.webp"
-									style="height:15px;width:auto;margin-top:-4px;padding-right:2px;" />
-								<span>125.00</span>
-							</p>
-
-							<div class="qty modern-qty">
-								<button onclick="qtyChange(this,-1)">−</button>
-								<span class="qty-num">1</span>
-								<button onclick="qtyChange(this,1)">+</button>
-							</div>
-
-						</div>
-					</div>
-					<span class="remove" onclick="removeItem(this)">&times;</span>
-				</div>
-			</div>
-
-			<!-- FOOTER -->
-			<div class="cart-footer">
-				<div class="total">
-					<span>Total</span>
-					<strong><img src="images/aed.webp"
-							style="height:12px;width:auto;margin-top:-4px;padding-right:2px;" />25.00</strong>
-				</div>
-				<a id="chechout" href="https://wa.me/+971507135589?text=I'd like to place an order." target="_blank"
-					style="flex:1;">
-					<button class="userlogin-button" style="width:100%;">
-						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black"
-							class="bi bi-bag-heart-fill" viewBox="0 0 16 16">
-							<path
-								d="M11.5 4v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m0 6.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132" />
-						</svg>
-						<span style="font-size:13px;font-weight:700;margin-left:6px;">Checkout</span>
-					</button>
-				</a>
-			</div>
-		</div>
-	</div>  
+            <!-- FOOTER -->
+            <div class="cart-footer">
+                <div class="total">
+                    <span>Total</span>
+                    <strong><img src="images/aed.webp"
+                            style="height:12px;width:auto;margin-top:-4px;padding-right:2px;" />25.00</strong>
+                </div>
+                <a id="checkout" href="https://wa.me/+971566136798?text=I'd like to place an order." target="_blank"
+                    style="flex:1;">
+                    <button class="userlogin-button" style="width:100%;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black"
+                            class="bi bi-bag-heart-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M11.5 4v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m0 6.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132" />
+                        </svg>
+                        <span style="font-size:13px;font-weight:700;margin-left:6px;">Checkout</span>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- CART MODAL END -->
 
     <section class="product-details container">
-
-        <div class="row product-wrapper">
-
-            <!-- PRODUCT IMAGES -->
-
-            <div class="col-lg-6">
-
-                <div class="product-gallery">
-
-                    <div class="product-thumbs">
-                        <img src="images/product/abaya/a-1.jpg" onclick="changeImage(this)">
-                        <img src="images/product/abaya/a-2.jpg" onclick="changeImage(this)">
-                        <img src="images/product/abaya/a-3.jpg" onclick="changeImage(this)">
-                        <img src="images/product/abaya/a-4.jpg" onclick="changeImage(this)">
-                    </div>
-
-                    <div class="product-main-image">
-                        <img id="mainImage" src="images/product/abaya/a-1.jpg">
-                    </div>
-
-                    <div class="zoom-view" id="zoomView"></div>
-
-                </div>
-
-            </div>
-
-
-            <!-- PRODUCT INFO -->
-
-            <div class="col-lg-6 product-info">
-
-                <h2>Elegant Black Abaya</h2>
-
-                <p class="product-price">AED 249</p>
-
-                <p class="product-desc">
-                    Luxury abaya crafted with premium flowing fabric.
-                    Perfect for modern modest fashion and everyday elegance.
-                </p>
-
-                <!-- QUANTITY -->
-
-                <!-- QUANTITY SELECTOR -->
-                <h6 class="mt-4">Quantity</h6>
-                <div class="quantity-selector">
-                    <button type="button" class="qty-btn minus">-</button>
-                    <input type="number" class="qty-input" value="1" min="1">
-                    <button type="button" class="qty-btn plus">+</button>
-                </div>
-
-                <!-- SIZE -->
-
-                <h6 class="mt-4">Size</h6>
-
-                <div class="size-options">
-                    <span>S</span>
-                    <span>M</span>
-                    <span>L</span>
-                    <span>XL</span>
-                </div>
-
-                <button class="add-cart-btn">Add to Cart</button>
-
-            </div>
+        <div class="row product-wrapper" id="product-page">
 
         </div>
-
     </section>
 
     <!--==========================
     Footer
-  ============================-->
+    ============================-->
     <footer id="footer">
         <div class="footer-top">
             <div class="container">
@@ -250,10 +121,7 @@
                         <h4>Useful Links</h4>
                         <ul>
                             <li><i class="bi bi-chevron-right"></i> <a href="index.html">Home</a></li>
-                            <!-- <li><i class="bi bi-chevron-right"></i> <a href="">About us</a></li> -->
                             <li><i class="bi bi-chevron-right"></i> <a href="shop.html">Products</a></li>
-                            <!-- <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li> -->
-                            <!-- <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li> -->
                         </ul>
                     </div>
 
@@ -304,7 +172,6 @@
             </div>
             <div class="credits" style="color: white;">
                 Developed by <a class="instagram" href="https://faisan333.github.io/Faisan.github.io/" target="_blank">
-                    <!-- <i class="bi bi-instagram" style="width:16px;height:16px;color:#C13584;"></i> -->
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#D4AF37"
                         class="bi bi-code-square" viewBox="0 0 16 16">
                         <path
@@ -348,7 +215,7 @@
 
                 <div class="wa__popup_content_item">
 
-                    <a target="_blank" href="https://wa.me/?text=Hello%20I%20need%20help">
+                    <a target="_blank" href="https://wa.me/+971566136798?text=Hello%20I%20need%20help">
 
                         <div class="wa__popup_avatar">
                             <img src="images/logo.png" alt="Avatar">
@@ -367,16 +234,19 @@
 
         </div>
     </div>
-
-
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.1/jquery-migrate.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/popper.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/tiny-slider.js"></script>
     <script src="js/custom.js"></script>
     <script src="js/style.js"></script>
-    <!-- <script src="shop/js/shop.js"></script> -->
+    <script src="js/config.js"></script>
     <script src="js/product-detail.js"></script>
-
 </body>
 
 </html>
