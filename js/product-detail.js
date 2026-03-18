@@ -351,3 +351,76 @@ function changeQty(val) {
 	if (quantity < 1) quantity = 1;
 	document.getElementById("qty").innerText = quantity;
 }
+
+/* PRODUCT CARD TEMPLATE */
+function productCardTemplate(product, index) {
+	const price = product.item_price || "0.00";
+	const item_code = product.name || "";
+	const item_name = product.item_name || "";
+
+	const images = product.images?.length
+		? product.images
+		: ["images/item_place_holder.png"];
+
+	const imageSlides = images.map(img => `
+	<img src="${img}" class="PRimg">
+  `).join("");
+
+	return `
+	<div class="col-6 col-md-4 col-lg-2 mb-4 d-flex">
+		<div class="product w-100">
+			<div class="carousels" data-index="${index}">
+				<div class="carousel_slider">
+					<div class="content_inner_slider">
+						${imageSlides}
+					</div>
+					
+					<button class="prev_button PRBTN" onclick="slidePrev(${index})">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+								fill="currentColor" class="bi bi-caret-left-fill"
+								viewBox="0 0 16 16">
+								<path
+								d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
+							</svg>
+					</button>
+					<button class="next_button PRBTN" onclick="slideNext(${index})">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+									fill="currentColor" class="bi bi-caret-right-fill"
+									viewBox="0 0 16 16">
+									<path
+									d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+							</svg>
+							</button>
+				</div>
+			</div>
+			<div class="p-2" style="display:flex; justify-content:space-between; align-items:center;">
+				<div class="pricing">
+					<p class="price">
+						<span>
+							<img src="images/aed.webp" style="height:12px; margin-top:-2px; padding-right:2px;" />
+							${price}
+						</span>
+					</p>
+				</div>
+			</div>
+			<div class="text p-2 pt-0" onclick="window.location.href='item-details.html?code=${item_code}'" style="cursor:pointer;">
+				<h2 style="display:none;">${item_code}</h2>
+				<h3>${item_name}</h3>
+				<div class="d-flex margb">
+					<div class="cat">
+						<span>Palmera</span>
+					</div>
+					<div class="rating">
+						<p class="text-right mb-0">
+							<span class="fa fa-star starrat"></span>
+							<span class="fa fa-star starrat"></span>
+							<span class="fa fa-star starrat"></span>
+							<span class="fa fa-star starrat"></span>
+							<span class="fa fa-star starrat"></span>
+						</p>
+					</div>
+				</div>
+			</div >
+		</div >
+		`;
+}
