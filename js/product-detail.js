@@ -143,7 +143,7 @@ function saveCart(cart) {
 
 function add_to_cart(el) {
 	console.log("Adding to cart...");
-	const product = el.closest(".product-info");
+	const product = el.closest(".product-infos");
 	if (!product) return;
 
 	const item_code = product.querySelector("[data-item-code]")?.innerText || "Item Code";
