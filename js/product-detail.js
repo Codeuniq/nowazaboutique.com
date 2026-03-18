@@ -1,5 +1,6 @@
 const API_BASE_URL = CONFIG.API_BASE_URL;
 const code = new URLSearchParams(window.location.search).get('code');
+const sliderState = {};
 
 // These are initialized AFTER the template is injected
 let img = null;
@@ -20,6 +21,15 @@ function load_item_details() {
 			if (!container) return;
 
 			container.insertAdjacentHTML("beforeend", productDetailsTemplate(product_data));
+			similar_items.forEach((product, index) => {
+				const similar_items_container = document.getElementById('items-container');
+				if (!similar_items_container) return;
+
+				similar_items_container.insertAdjacentHTML(
+					"beforeend",
+					productCardTemplate(product, index)
+				);
+			});
 
 			// Select elements AFTER HTML is injected
 			img = document.getElementById('mainImage');
@@ -403,7 +413,7 @@ function productCardTemplate(product, index) {
 					</p>
 				</div>
 			</div>
-			<div class="text p-2 pt-0" onclick="window.location.href='item-details.html?code=${item_code}'" style="cursor:pointer;">
+			<div class="text p-2 pt-0" onclick="window.location.href='product-details.html?code=${item_code}'" style="cursor:pointer;">
 				<h2 style="display:none;">${item_code}</h2>
 				<h3>${item_name}</h3>
 				<div class="d-flex margb">
@@ -426,44 +436,74 @@ function productCardTemplate(product, index) {
 }
 
 //PRODUCT IMAGE CAROSUSEL
-	window.addEventListener("load", function () {
+window.addEventListener("load", function () {
 
-		document.querySelectorAll(".carousels").forEach(carousel => {
+	document.querySelectorAll(".carousels").forEach(carousel => {
 
-			const slider = carousel.querySelector(".content_inner_slider");
-			const images = carousel.querySelectorAll(".PRimg");
-			const prevBtn = carousel.querySelector(".prev_button");
-			const nextBtn = carousel.querySelector(".next_button");
-			const dots = carousel.querySelectorAll(".dot");
+		const slider = carousel.querySelector(".content_inner_slider");
+		const images = carousel.querySelectorAll(".PRimg");
+		const prevBtn = carousel.querySelector(".prev_button");
+		const nextBtn = carousel.querySelector(".next_button");
+		const dots = carousel.querySelectorAll(".dot");
 
-			let index = 0;
-			const total = images.length;
+		let index = 0;
+		const total = images.length;
 
-			function updateSlider() {
-				slider.style.transform = `translateX(-${index * 100}%)`;
+		function updateSlider() {
+			slider.style.transform = `translateX(-${index * 100}%)`;
 
-				dots.forEach(dot => dot.classList.remove("active"));
-				if (dots[index]) dots[index].classList.add("active");
-			}
+			dots.forEach(dot => dot.classList.remove("active"));
+			if (dots[index]) dots[index].classList.add("active");
+		}
 
-			nextBtn.addEventListener("click", () => {
-				index = (index + 1) % total;
-				updateSlider();
-			});
-
-			prevBtn.addEventListener("click", () => {
-				index = (index - 1 + total) % total;
-				updateSlider();
-			});
-
-			dots.forEach((dot, i) => {
-				dot.addEventListener("click", () => {
-					index = i;
-					updateSlider();
-				});
-			});
-
+		nextBtn.addEventListener("click", () => {
+			index = (index + 1) % total;
 			updateSlider();
 		});
 
+		prevBtn.addEventListener("click", () => {
+			index = (index - 1 + total) % total;
+			updateSlider();
+		});
+
+		dots.forEach((dot, i) => {
+			dot.addEventListener("click", () => {
+				index = i;
+				updateSlider();
+			});
+		});
+
+		updateSlider();
 	});
+
+});
+
+
+/* SLIDER CONTROLS */
+function slideNext(index) {
+	const slider = document.querySelector(
+		`.carousels[data-index="${index}"] .content_inner_slider`
+	);
+	if (!slider) return;
+
+	const total = slider.children.length;
+	sliderState[index] = (sliderState[index] || 0) + 1;
+
+	if (sliderState[index] >= total) sliderState[index] = 0;
+
+	slider.style.transform = `translateX(-${sliderState[index] * 100}%)`;
+}
+
+function slidePrev(index) {
+	const slider = document.querySelector(
+		`.carousels[data-index="${index}"] .content_inner_slider`
+	);
+	if (!slider) return;
+
+	const total = slider.children.length;
+	sliderState[index] = (sliderState[index] || 0) - 1;
+
+	if (sliderState[index] < 0) sliderState[index] = total - 1;
+
+	slider.style.transform = `translateX(-${sliderState[index] * 100}%)`;
+}
