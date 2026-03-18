@@ -4,6 +4,7 @@ const code = new URLSearchParams(window.location.search).get('code');
 // These are initialized AFTER the template is injected
 let img = null;
 let zoom = null;
+let quantity = 1;
 
 function load_item_details() {
 	updateCartCount();
@@ -14,6 +15,7 @@ function load_item_details() {
 		dataType: "json",
 		success: function (res) {
 			const product_data = res.data || {};
+			const similar_items = product_data.similar_items || [];
 			const container = document.getElementById('product-page');
 			if (!container) return;
 
@@ -60,7 +62,6 @@ function initQtyButtons() {
 function initZoom() {
 	if (!img || !zoom) return;
 
-	// Set initial zoom background
 	setZoom();
 
 	img.addEventListener("mousemove", function (e) {
@@ -68,7 +69,7 @@ function initZoom() {
 		const rect = img.getBoundingClientRect();
 		const x = ((e.clientX - rect.left) / rect.width) * 100;
 		const y = ((e.clientY - rect.top) / rect.height) * 100;
-		zoom.style.backgroundPosition = `${x}% ${y}%`;
+		zoom.style.backgroundPosition = x + "% " + y + "%";
 	});
 
 	img.addEventListener("mouseleave", function () {
@@ -79,7 +80,6 @@ function initZoom() {
 function setZoom() {
 	if (!img || !zoom) return;
 	zoom.style.backgroundImage = `url(${img.src})`;
-	zoom.style.backgroundSize = "200%";
 }
 
 // Change main image when clicking thumbnail
@@ -108,37 +108,15 @@ function showNextImage() {
    ======================= */
 
 let selectedSize = "N/A";
-let selectedQty = 0;
 
-function selectSize(el, size, qty) {
+function selectSize(el, size) {
 	document.querySelectorAll(".size-circle").forEach(s => s.classList.remove("active"));
 	el.classList.add("active");
 	selectedSize = size;
-	selectedQty = qty;
 	document.getElementById("selectedSize").value = size;
 
 	// Enable the button once a size is picked
 	document.getElementById("addToCartBtn").disabled = false;
-}
-
-/* =======================
-   WHATSAPP ORDER
-   ======================= */
-
-function order_via_whatsapp(el) {
-	const product = el.closest(".product-info");
-	if (!product) return;
-
-	const item_code = product.querySelector("[data-item-code]")?.innerText || "Item Code";
-	const item_name = product.querySelector(".product-title")?.innerText || "Item Name";
-	const qty = document.querySelector(".qty-input")?.value || "1";
-	const item_size = document.getElementById("selectedSize")?.value || "N/A";
-
-	const message = encodeURIComponent(
-		`I'd like to order *${item_code}* - *${item_name}* - (${item_size}) of Qty: *${qty}*.`
-	);
-
-	el.href = `https://wa.me/+971566136798?text=${message}`;
 }
 
 /* =======================
@@ -154,16 +132,15 @@ function saveCart(cart) {
 }
 
 function add_to_cart(el) {
+	console.log("Adding to cart...");
 	const product = el.closest(".product-info");
 	if (!product) return;
 
 	const item_code = product.querySelector("[data-item-code]")?.innerText || "Item Code";
 	const item_name = product.querySelector(".product-title")?.innerText || "Item Name";
 	const qty = document.querySelector(".qty-input")?.value || "1";
-	const item_price = product.querySelector(".product-price")?.innerText?.trim() || "0.00";
-
+	const item_price = product.querySelector(".price")?.innerText?.trim() || "0.00";
 	const item_size = document.getElementById("selectedSize")?.value || "N/A";
-
 	const firstThumb = document.querySelector(".product-thumbs img");
 	const item_image = firstThumb ? firstThumb.src : "";
 
@@ -191,8 +168,6 @@ function add_to_cart(el) {
 }
 
 function open_cart_popup() {
-	console.log("Opening cart popup");
-
 	renderCart();
 	document.getElementById("cartModal").style.display = "flex";
 }
@@ -313,7 +288,7 @@ function productDetailsTemplate(product) {
 	const sizeOptions = product.sizes?.length
 		? product.sizes.map(size => `
 		<div class="size-circle ${size.qty === 0 ? 'disabled' : ''}"
-			 onclick="selectSize(this, '${size.size}', ${size.qty})">
+			 onclick="selectSize(this, '${size.size}')">
 		  ${size.size}
 		</div>
 	  `).join("")
@@ -346,25 +321,33 @@ function productDetailsTemplate(product) {
 		<div class="col-lg-6 product-info">
 			<h2 data-item-code style="display:none;">${item_code}</h2>
 			<h2 class="product-title">${item_name}</h2>
-			<p class="product-price">AED ${price}</p>
-			<p class="product-desc">${description}</p>
 
-			<!-- QUANTITY SELECTOR -->
-			<h6 class="mt-4">Quantity</h6>
-			<div class="quantity-selector">
-				<button type="button" class="qty-btn minus">-</button>
-				<input type="number" class="qty-input" value="1" min="1">
-				<button type="button" class="qty-btn plus">+</button>
+			<div class="details-title">DETAILS</div>
+			<p class="desc">${description}</p>
+
+			<p class="choose">Choose Size</p>
+			<div class="sizes">${sizeOptions}</div>
+
+			<input type="hidden" id="selectedSize" name="size" value="">
+
+			<div class="buy-row">
+				<div class="qty">
+					<button onclick="changeQty(-1)">-</button>
+					<span id="qty">1</span>
+					<button onclick="changeQty(1)">+</button>
+				</div>
 			</div>
-
-			<!-- SIZE -->
-			<h6 class="mt-4">Size</h6>
-			<div class="size-options">
-				${sizeOptions}
+			<div class="buy-row">
+				<button class="add-cart-btn" onclick="add_to_cart(this);" id="addToCartBtn" disabled>Add to Cart</button>
 			</div>
-			<input type="hidden" id="selectedSize" value="N/A">
-
-			<button class="add-cart-btn" onclick="add_to_cart(this)" id="addToCartBtn" disabled>Add to Cart</button>
+			<div class="price">${price} <img src="images/aed.webp" style="height:17px; margin-left:5px; padding-right:2px;"/></div>
+			<p class="tax">Taxes are included.</p>
 		</div>
 	`;
+}
+
+function changeQty(val) {
+	quantity += val;
+	if (quantity < 1) quantity = 1;
+	document.getElementById("qty").innerText = quantity;
 }
