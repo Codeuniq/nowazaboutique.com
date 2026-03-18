@@ -7,8 +7,7 @@
 		</script>
 	<title>Nowazaa Products</title>
 	<meta charset="utf-8">
-	<meta name="description"
-		content="Nowazaa">
+	<meta name="description" content="Nowazaa">
 	<link href="images/favi.webp" rel="icon">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,9 +38,7 @@
 	<link rel="stylesheet" href="css/custom.css">
 </head>
 
-<body class="goto-here">
-	<!-- ? Preloader Start -->
-
+<body class="goto-here" onload="load_items()">
 	<section>
 		<!-- ===== HEADER ===== -->
 		<header class="header">
@@ -60,32 +57,16 @@
 
 			<div class="header-icons">
 				<i class="fab fa-instagram"></i>
-				<!-- <div class="currency-toggle">
-					<div class="toggle" id="currencyToggle">
-						<div class="toggle-indicator"></div>
-						<span class="currency inr active">INR</span>
-						<span class="currency aed ">AED</span>
-					</div>
-				</div> -->
-				<div class="cart-icon" onclick="openCart()">
+				<div class="cart-icon" onclick="open_cart_popup()">
 					<i class="fa fa-shopping-bag" style="color: black;"></i>
-					<span id="cartCount">5</span>
+					<span id="cartCount"></span>
 				</div>
 			</div>
 
 		</header>
-		<!-- <div class="wrappers">
-			<div class="elements"></div>
-		</div> -->
 		<!-- ===== NAVBAR ===== -->
 		<nav class="navbar" id="navbar">
 			<a href="index.html">Home</a>
-			<!-- <a href="#">Printed</a>
-			<a href="#">Solids</a> -->
-			<!-- <a href="#">Exclusive Collection</a> -->
-			<!-- <a href="#">Accessories</a> -->
-			<!-- <a href="#">Flash Sale <span class="badge">UPTO 50%</span></a> -->
-			<!-- <a href="">About Us</a> -->
 			<a href="shop.html">Products</a>
 			<a href="contact.html">Contact Us</a>
 		</nav>
@@ -94,73 +75,14 @@
 	<!-- CART MODAL -->
 	<div id="cartModal" class="cart-modal">
 		<div class="cart-content">
-
 			<!-- HEADER -->
 			<div class="cart-header">
 				<h3>Shopping Cart</h3>
 				<span class="close-btn" onclick="closeCart()">&times;</span>
 			</div>
-
 			<!-- CART ITEMS -->
 			<div class="cart-items">
-
-				<!-- PRODUCT 1 -->
-				<div class="cart-item">
-					<div class="cart-gallery">
-						<img src="images/product/abaya/a-8.jpg" class="main-img">
-					</div>
-
-					<div class="item-info">
-						<h4>Abaya</h4>
-
-						<div class="price-qty">
-							<p class="price">
-								<img src="images/aed.webp"
-									style="height:15px;width:auto;margin-top:-4px;padding-right:2px;" />
-								<span>25.00</span>
-							</p>
-
-							<div class="qty modern-qty">
-								<button onclick="qtyChange(this,-1)">−</button>
-								<span class="qty-num">1</span>
-								<button onclick="qtyChange(this,1)">+</button>
-							</div>
-
-						</div>
-					</div>
-
-
-					<span class="remove" onclick="removeItem(this)">&times;</span>
-				</div>
-
-				<!-- PRODUCT 2 -->
-				<div class="cart-item">
-					<div class="cart-gallery">
-						<img src="images/product/abaya/a-5.jpg" class="main-img">
-					</div>
-
-					<div class="item-info">
-						<h4>Abaya</h4>
-
-						<div class="price-qty">
-							<p class="price" id="aed">
-								<img src="images/aed.webp"
-									style="height:15px;width:auto;margin-top:-4px;padding-right:2px;" />
-								<span>125.00</span>
-							</p>
-
-							<div class="qty modern-qty">
-								<button onclick="qtyChange(this,-1)">−</button>
-								<span class="qty-num">1</span>
-								<button onclick="qtyChange(this,1)">+</button>
-							</div>
-
-						</div>
-					</div>
-					<span class="remove" onclick="removeItem(this)">&times;</span>
-				</div>
 			</div>
-
 			<!-- FOOTER -->
 			<div class="cart-footer">
 				<div class="total">
@@ -168,7 +90,7 @@
 					<strong><img src="images/aed.webp"
 							style="height:12px;width:auto;margin-top:-4px;padding-right:2px;" />25.00</strong>
 				</div>
-				<a id="chechout" href="https://wa.me/+971507135589?text=I'd like to place an order." target="_blank"
+				<a id="checkout" href="https://wa.me/+971566136798?text=I'd like to place an order." target="_blank"
 					style="flex:1;">
 					<button class="userlogin-button" style="width:100%;">
 						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black"
@@ -182,15 +104,13 @@
 			</div>
 		</div>
 	</div>
-
-
+	<!-- CART MODAL END -->
 
 	<section class="ftco-product">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-12 heading-section text-center ftco-animate">
-					<p style="font-family: Emirates Bold;"
-						style="color:#343434	;font-family: NexaRegular; font-size:16px; font-weight:600;">
+					<p style="color:#343434	;font-family: NexaRegular; font-size:16px; font-weight:600;">
 						A stylish and elegant wear, designed for comfort and cultural flair, perfect for any
 						occasion.
 					</p>
@@ -201,51 +121,42 @@
 			<div class="prod-header">
 				<ul class="nav nav-tabs justify-content-center" role="tablist">
 					<li class="nav-item">
-						<a class="nav-link tab-btn active" data-category="abaya" data-toggle="tab" href="#abaya"
-							role="tab">
-							<!-- <i class="now-ui-icons objects_umbrella-13"></i>  -->
+						<a class="nav-link tab-btn active" data-toggle="tab" href="#abaya" role="tab">
 							Abaya
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link tab-btn" data-category="modest" data-toggle="tab" href="#modest" role="tab">
-							<!-- <i class="now-ui-icons ui-2_settings-90"></i>  -->
+						<a class="nav-link tab-btn" data-toggle="tab" href="#modest_wear" role="tab">
 							Modest Wear
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link tab-btn" data-category="ladies" data-toggle="tab" href="#ladies" role="tab">
-							<!-- <i class="now-ui-icons ui-2_settings-90"></i>  -->
+						<a class="nav-link tab-btn" data-toggle="tab" href="#ladies_formal" role="tab">
 							Ladies Formal
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link tab-btn" data-category="cotton" data-toggle="tab" href="#cotton" role="tab">
-							<!-- <i class="now-ui-icons ui-2_settings-90"></i>  -->
+						<a class="nav-link tab-btn" data-toggle="tab" href="#cotton_salwar" role="tab">
 							Cotton Salwar
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link tab-btn" data-category="coorder" data-toggle="tab" href="#coorder" role="tab">
-							<!-- <i class="now-ui-icons ui-2_settings-90"></i>  -->
+						<a class="nav-link tab-btn" data-toggle="tab" href="#co_ord_set" role="tab">
 							Co-Ord Set
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link tab-btn" data-category="prayer" data-toggle="tab" href="#prayer" role="tab">
-							<!-- <i class="now-ui-icons ui-2_settings-90"></i>  -->
+						<a class="nav-link tab-btn" data-toggle="tab" href="#prayer_dress" role="tab">
 							Prayer Dress
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link tab-btn" data-category="hijab" data-toggle="tab" href="#hijab" role="tab">
-							<!-- <i class="now-ui-icons ui-2_settings-90"></i>  -->
+						<a class="nav-link tab-btn" data-toggle="tab" href="#hijab" role="tab">
 							Hijab
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link tab-btn" data-category="girl" data-toggle="tab" href="#girls" role="tab">
-							<!-- <i class="now-ui-icons ui-2_settings-90"></i>  -->
+						<a class="nav-link tab-btn" data-toggle="tab" href="#girls" role="tab">
 							Girls
 						</a>
 					</li>
@@ -257,136 +168,57 @@
 				<div class="tab-content text-center">
 					<div class="tab-pane active" id="abaya" role="tabpanel">
 						<div class="container">
-							<div class="row justify-content-center">
-								<div class="col-6 col-md-6 col-lg-3  ftco-animate d-flex">
-									<div  class="product d-flex flex-column" style="cursor:pointer;">
-										<div class="carousels">
-											<div class="carousel_slider">
-												<div class="content_inner_slider">
-													<img src="images/product/abaya/a-1.jpg" class="PRimg">
-													<img src="images/product/abaya/a-2.jpg" class="PRimg">
-													<img src="images/product/abaya/a-3.jpg" class="PRimg">
-
-												</div>
-
-												<button class="prev_button PRBTN">
-													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-														fill="currentColor" class="bi bi-caret-left-fill"
-														viewBox="0 0 16 16">
-														<path
-															d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
-													</svg>
-
-												</button>
-												<button class="next_button PRBTN">
-													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-														fill="currentColor" class="bi bi-caret-right-fill"
-														viewBox="0 0 16 16">
-														<path
-															d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
-													</svg>
-
-												</button>
-											</div>
-
-											<ul class="dots d-none">
-												<li class="dot"></li>
-												<li class="dot"></li>
-												<li class="dot"></li>
-											</ul>
-										</div>
-										<div class="text  py-3 pb-4 px-3 cardTop" onclick="window.location.href='product-details.html'" style="cursor: pointer;">
-											<div
-												style="display: flex; justify-content: space-between; align-items: center;">
-												<div class="pricing">
-													<!-- <p class="price" id="inr">
-														<span>
-															<img src="images/inr.png"
-																style="height: 12px; width: auto; margin-top:-2px; padding-right: 2px;" />
-															120.00
-														</span>
-													</p> -->
-													<p class="price" id="aed">
-														<span>
-															<img src="images/aed.webp"
-																style="height: 12px; width: auto; margin-top:-2px; padding-right: 2px;" />
-															120.00
-														</span>
-													</p>
-													
-												</div>
-											</div>
-											<h3>NowazaA ABAYA PREMIUM</h3>
-
-
-											<div class="d-flex margb">
-												<div class="cat">
-													<span>NOWAZA</span>
-												</div>
-												<div class="rating">
-													<p class="text-right mb-0">
-														<span class="fa fa-star starrat"></span>
-														<span class="fa fa-star starrat"></span>
-														<span class="fa fa-star starrat"></span>
-														<span class="fa fa-star starrat"></span>
-														<span class="fa fa-star starrat"></span>
-													</p>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- <button class="see-more-btn">See More</button> -->
-					</div>
-					<div class="tab-pane" id="modest" role="tabpanel">
-						<div class="container">
-							<div class="row justify-content-center">
-								
+							<div class="row justify-content-center" id="abaya_items">
 
 							</div>
 						</div>
 					</div>
-					<div class="tab-pane" id="ladies" role="tabpanel">
+					<div class="tab-pane" id="modest_wear" role="tabpanel">
 						<div class="container">
-							<div class="row justify-content-center">
-								
+							<div class="row justify-content-center" id="modest_wear_items">
+
 							</div>
 						</div>
 					</div>
-					<div class="tab-pane" id="cotton" role="tabpanel">
+					<div class="tab-pane" id="ladies_formal" role="tabpanel">
 						<div class="container">
-							<div class="row justify-content-center">
-								
+							<div class="row justify-content-center" id="ladies_formal_items">
+
 							</div>
 						</div>
 					</div>
-					<div class="tab-pane" id="coorder" role="tabpanel">
+					<div class="tab-pane" id="cotton_salwar" role="tabpanel">
 						<div class="container">
-							<div class="row justify-content-center">
-								
+							<div class="row justify-content-center" id="cotton_salwar_items">
+
 							</div>
 						</div>
 					</div>
-					<div class="tab-pane" id="prayer" role="tabpanel">
+					<div class="tab-pane" id="co_ord_set" role="tabpanel">
 						<div class="container">
-							<div class="row justify-content-center">
-								
+							<div class="row justify-content-center" id="co_ord_set_items">
+
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane" id="prayer_dress" role="tabpanel">
+						<div class="container">
+							<div class="row justify-content-center" id="prayer_dress_items">
+
 							</div>
 						</div>
 					</div>
 					<div class="tab-pane" id="hijab" role="tabpanel">
 						<div class="container">
-							<div class="row justify-content-center">
-								
+							<div class="row justify-content-center" id="hijab_items">
+
 							</div>
 						</div>
 					</div>
 					<div class="tab-pane" id="girls" role="tabpanel">
 						<div class="container">
-							<div class="row justify-content-center">
-								
+							<div class="row justify-content-center" id="girls_items">
+
 							</div>
 						</div>
 					</div>
@@ -394,8 +226,8 @@
 
 	</section>
 	<!--==========================
-    Footer
-  ============================-->
+	Footer
+	============================-->
 	<footer id="footer">
 		<div class="footer-top">
 			<div class="container">
@@ -415,10 +247,7 @@
 						<h4>Useful Links</h4>
 						<ul>
 							<li><i class="bi bi-chevron-right"></i> <a href="#home">Home</a></li>
-							<!-- <li><i class="bi bi-chevron-right"></i> <a href="#about">About us</a></li> -->
 							<li><i class="bi bi-chevron-right"></i> <a href="#portfolio">Products</a></li>
-							<!-- <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li> -->
-							<!-- <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li> -->
 						</ul>
 					</div>
 
@@ -428,18 +257,16 @@
 							Murshid Bazar, Near Gold Souq <br>Gate No.1 Opp Belhoul Masjid,<br>Deira, Dubai - UAE
 							<br>
 							<strong><img src="images/app/call.webp"
-									style="height: 18px;width: auto; padding-right: 5px;" /></strong>+971507135589<br>
+									style="height: 18px;width: auto; padding-right: 5px;" /></strong>+917559922829<br>
 							<strong><img src="images/app/email.webp"
 									style="height: 18px;width: auto; padding-right: 5px;" /></strong>admin@ttgulf.ae<br>
 						</p>
 
 						<div class="social-links">
-							<!-- <a class="twitter"><i class="fa fa-twitter"></i></a> -->
 							<a href=" https://www.facebook.com/Nowazaa.gcc/" class="facebook" target="_blank"><i
 									class="fa fa-facebook"></i></a>
 							<a href="https://www.instagram.com/Nowazaa.gcc/" class="instagram" target="_blank"><i
 									class="fa fa-instagram"></i></a>
-							<!-- <a href="" class="instagram"><i class="bi bi-instagram"></i></a> -->
 							<a href="https://www.tiktok.com/@Nowazaa.gcc/" class="linkedin" target="_blank"><svg
 									xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
 									class="bi bi-tiktok" viewBox="0 0 16 16">
@@ -468,7 +295,6 @@
 			</div>
 			<div class="credits" style="color: white;">
 				Developed by <a class="instagram" href="https://faisan333.github.io/Faisan.github.io/" target="_blank">
-					<!-- <i class="bi bi-instagram" style="width:16px;height:16px;color:#C13584;"></i> -->
 					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#D4AF37"
 						class="bi bi-code-square" viewBox="0 0 16 16">
 						<path
@@ -481,10 +307,9 @@
 		</div>
 	</footer>
 	<!-- #footer -->
-	<!-- #footer -->
 
-	<a href="https://wa.me/+971507135589" target="_blank" class="back-to-top" type="button" class="btn"
-		data-toggle="tooltip" data-placement="left" title="Whatsapp Us">
+	<a href="https://wa.me/+971566136798" target="_blank" class="back-to-top btn" type="button" data-toggle="tooltip"
+		data-placement="left" title="Whatsapp Us">
 		<svg style="pointer-events:none; display:block; height:50px; width:50px;" width="60px" height="60px"
 			viewBox="0 0 1024 1024">
 			<defs>
@@ -512,9 +337,6 @@
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js'></script>
 	<script src='https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js'></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js'></script>
-	<script src="shop/js/jquery.min.js"></script>
-	<script src="shop/js/jquery-migrate-3.0.1.min.js"></script>
-	<script src="shop/js/bootstrap.min.js"></script>
 	<script src="shop/js/jquery.easing.1.3.js"></script>
 	<script src="shop/js/jquery.waypoints.min.js"></script>
 	<script src="shop/js/jquery.stellar.min.js"></script>
@@ -527,6 +349,8 @@
 	<script src="shop/js/google-map.js"></script>
 	<script src="shop/js/shop.js"></script>
 	<script src="js/custom.js"></script>
+	<script src="js/config.js"></script>
+	<script src="js/shop.js"></script>
 	<script src='https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'></script>
 
 </body>
