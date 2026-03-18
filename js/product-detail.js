@@ -424,3 +424,46 @@ function productCardTemplate(product, index) {
 		</div >
 		`;
 }
+
+//PRODUCT IMAGE CAROSUSEL
+	window.addEventListener("load", function () {
+
+		document.querySelectorAll(".carousels").forEach(carousel => {
+
+			const slider = carousel.querySelector(".content_inner_slider");
+			const images = carousel.querySelectorAll(".PRimg");
+			const prevBtn = carousel.querySelector(".prev_button");
+			const nextBtn = carousel.querySelector(".next_button");
+			const dots = carousel.querySelectorAll(".dot");
+
+			let index = 0;
+			const total = images.length;
+
+			function updateSlider() {
+				slider.style.transform = `translateX(-${index * 100}%)`;
+
+				dots.forEach(dot => dot.classList.remove("active"));
+				if (dots[index]) dots[index].classList.add("active");
+			}
+
+			nextBtn.addEventListener("click", () => {
+				index = (index + 1) % total;
+				updateSlider();
+			});
+
+			prevBtn.addEventListener("click", () => {
+				index = (index - 1 + total) % total;
+				updateSlider();
+			});
+
+			dots.forEach((dot, i) => {
+				dot.addEventListener("click", () => {
+					index = i;
+					updateSlider();
+				});
+			});
+
+			updateSlider();
+		});
+
+	});
