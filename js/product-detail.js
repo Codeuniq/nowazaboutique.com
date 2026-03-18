@@ -328,7 +328,7 @@ function productDetailsTemplate(product) {
 		</div>
 
 		<!-- PRODUCT INFO -->
-		<div class="col-lg-6 product-info">
+		<div class="col-lg-6 product-infos">
 			<h2 data-item-code style="display:none;">${item_code}</h2>
 			<h2 class="product-title">${item_name}</h2>
 
