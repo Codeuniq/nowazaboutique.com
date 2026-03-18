@@ -727,7 +727,7 @@ body {
 /* PRODUCT INFO */
 .product-info {
     padding: 12px;
-    text-align: center;
+    /* text-align: center; */
     flex-grow: 1;
 }
 

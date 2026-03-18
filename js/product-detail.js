@@ -60,7 +60,6 @@ function initQtyButtons() {
 function initZoom() {
 	if (!img || !zoom) return;
 
-	// Set initial zoom background
 	setZoom();
 
 	img.addEventListener("mousemove", function (e) {
@@ -68,7 +67,7 @@ function initZoom() {
 		const rect = img.getBoundingClientRect();
 		const x = ((e.clientX - rect.left) / rect.width) * 100;
 		const y = ((e.clientY - rect.top) / rect.height) * 100;
-		zoom.style.backgroundPosition = `${x}% ${y}%`;
+		zoom.style.backgroundPosition = x + "% " + y + "%";
 	});
 
 	img.addEventListener("mouseleave", function () {
@@ -79,7 +78,6 @@ function initZoom() {
 function setZoom() {
 	if (!img || !zoom) return;
 	zoom.style.backgroundImage = `url(${img.src})`;
-	zoom.style.backgroundSize = "200%";
 }
 
 // Change main image when clicking thumbnail
@@ -343,28 +341,31 @@ function productDetailsTemplate(product) {
 		</div>
 
 		<!-- PRODUCT INFO -->
-		<div class="col-lg-6 product-info">
-			<h2 data-item-code style="display:none;">${item_code}</h2>
-			<h2 class="product-title">${item_name}</h2>
-			<p class="product-price">AED ${price}</p>
-			<p class="product-desc">${description}</p>
+		<div class="col-lg-6 product-infos">
+		
+		<h2 class="product-title">${item_name}</h2>
+			<h2 style="display:none;">${item_code}</h2>
 
-			<!-- QUANTITY SELECTOR -->
-			<h6 class="mt-4">Quantity</h6>
-			<div class="quantity-selector">
-				<button type="button" class="qty-btn minus">-</button>
-				<input type="number" class="qty-input" value="1" min="1">
-				<button type="button" class="qty-btn plus">+</button>
+			<div class="details-title">DETAILS</div>
+			<p class="desc">${description}</p>
+
+			<p class="choose">Choose Size</p>
+			<div class="sizes">${sizeOptions}</div>
+
+			<input type="hidden" id="selectedSize" name="size" value="">
+
+			<div class="buy-row">
+				<div class="qty">
+					<button onclick="changeQty(-1)">-</button>
+					<span id="qty">1</span>
+					<button onclick="changeQty(1)">+</button>
+				</div>
 			</div>
-
-			<!-- SIZE -->
-			<h6 class="mt-4">Size</h6>
-			<div class="size-options">
-				${sizeOptions}
+			<div class="buy-row">
+				<button class="buy-btn" onclick="add_to_cart(this);">Add to Cart</button>
 			</div>
-			<input type="hidden" id="selectedSize" value="N/A">
-
-			<button class="add-cart-btn" onclick="add_to_cart(this)" id="addToCartBtn" disabled>Add to Cart</button>
+			<div class="price">${price} <img src="images/aed.webp" style="height:17px; margin-left:5px; padding-right:2px;"/></div>
+			<p class="tax">Taxes are included.</p>
 		</div>
 	`;
 }
