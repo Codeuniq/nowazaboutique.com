@@ -15,7 +15,7 @@
 /* IMAGE BOX */
 .product-img{
     width:100%;
-    height:0px; /* fixed product image size */
+    height:350px; /* fixed product image size */
     overflow:hidden;
 }
 
