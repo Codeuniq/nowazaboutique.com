@@ -81,4 +81,17 @@
         padding: 8px 20px;
         font-size: 13px;
     }
+    /* ABAYA */
+.logo-side-top {
+    font-size: clamp(12px, 2vw, 18px);
+    line-height: 1;
+    margin: 0;
+}
+
+/* COLLECTION */
+.logo-side-bottom {
+    font-size: clamp(9px, 1.5vw, 15px);
+    line-height: 2;
+    margin: 0;
+}
 }

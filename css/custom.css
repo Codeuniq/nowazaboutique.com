@@ -232,6 +232,107 @@ body {
     border-radius: 3px;
 }
 
+/* Main wrapper */
+.logo-box {
+    font-family: 'Playfair Display', serif;
+    color: #1a1a1a;
+    text-transform: uppercase;
+    position: absolute;
+    left: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    z-index: 2;
+    max-width: 500px;
+}
+
+/* MODEST */
+.logo-top {
+    font-size: clamp(32px, 7vw, 70px);
+    line-height: 0.85;
+    margin: 0;
+}
+
+/* Row */
+.logo-row {
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+}
+
+/* WEAR */
+.logo-main {
+    font-size: clamp(34px, 7vw, 70px);
+    line-height: 0.85;
+    margin: 0;
+}
+
+/* Right text */
+.logo-side {
+    display: flex;
+    flex-direction: column;
+    margin-left: 4px; /* VERY small gap like image */
+    margin-top: 4px;
+}
+
+/* ABAYA */
+.logo-side-top {
+    font-size: clamp(12px, 2vw, 18px);
+    line-height: 2;
+    margin: 0;
+}
+
+/* COLLECTION */
+.logo-side-bottom {
+    font-size: clamp(9px, 1.5vw, 15px);
+    line-height: 1;
+    margin: 0;
+}
+/* Remove all default spacing */
+div {
+    padding: 0;
+}
+
+/* Mobile fine-tune */
+@media (max-width: 480px) {
+    .logo-side {
+        margin-left: 3px;
+        margin-top: 2px;
+    }
+}
+
+
+/* .brand-wrapper {
+    text-align: left;
+    font-family: 'Playfair Display', serif;
+    color: #1a1a1a;
+    position: absolute;
+    left: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    z-index: 2;
+    max-width: 500px;
+}
+
+.brand-title {
+    font-size: 60px;
+    letter-spacing: 3px;
+    line-height: 1;
+}
+
+.brand-subtitle {
+    font-size: 20px;
+    letter-spacing: 4px;
+    margin-left: 10px;
+}
+
+.brand-caption {
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-left: 10px;
+} */
+
 .main {
     position: relative;
     overflow: hidden;
@@ -290,8 +391,8 @@ body {
 .mainbtn {
     display: inline-block;
     padding: 12px 30px;
-    background: #fff;
-    color: #000;
+    background: transparent;
+    color: #fff;
     font-weight: 600;
     border-radius: 30px;
     text-decoration: none;
@@ -299,8 +400,8 @@ body {
 }
 
 .mainbtn:hover {
-    background: #000;
-    color: #fff;
+    background: #fff;
+    color: #000;
 }
 
 
