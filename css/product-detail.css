@@ -922,3 +922,9 @@
 .next_button {
   right: 5px;
 }
+
+@media (max-width: 768px) {
+    .social-icons {
+        display: none;
+    }
+}

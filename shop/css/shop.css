@@ -18275,6 +18275,11 @@ button:active {
     gap: 15px;
     margin-bottom: 20px;
 }
+@media (max-width: 768px) {
+    .social-icons {
+        display: none;
+    }
+}
 
 .cart-gallery {
     width: 80px;
