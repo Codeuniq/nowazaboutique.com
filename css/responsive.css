@@ -15,7 +15,7 @@
 /* IMAGE BOX */
 .product-img{
     width:100%;
-    height:350px; /* fixed product image size */
+    height:0px; /* fixed product image size */
     overflow:hidden;
 }
 
@@ -60,4 +60,25 @@
     height:420px; /* fixed product image size */
     overflow:hidden;
 }
+.slide img {
+        height: 38vh;   /* FIXED: no cut issue */
+        object-fit: cover;
+    }
+
+    .main-text {
+        left: 50%;
+        top: 70%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 90%;
+    }
+
+    .main-text h2 {
+        font-size: 22px;
+    }
+
+    .mainbtn {
+        padding: 8px 20px;
+        font-size: 13px;
+    }
 }
