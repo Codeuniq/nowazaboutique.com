@@ -30,7 +30,7 @@ var swiper = new Swiper(".trending-slider", {
 	loop: true,
 
 	autoplay: {
-		delay: 2500,
+		delay: 1500,
 		disableOnInteraction: false,
 		pauseOnMouseEnter: true
 	},
