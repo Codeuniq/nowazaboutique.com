@@ -142,17 +142,17 @@ function saveCart(cart) {
 }
 
 function add_to_cart(el) {
-	console.log("Adding to cart...");
 	const product = el.closest(".product-infos");
 	if (!product) return;
 
 	const item_code = product.querySelector("[data-item-code]")?.innerText || "Item Code";
 	const item_name = product.querySelector(".product-title")?.innerText || "Item Name";
-	const qty = document.querySelector(".qty-input")?.value || "1";
+	const qty_str = document.getElementById("qty-input")?.innerText?.trim() || "1";
 	const item_price = product.querySelector(".price")?.innerText?.trim() || "0.00";
 	const item_size = document.getElementById("selectedSize")?.value || "N/A";
 	const firstThumb = document.querySelector(".product-thumbs img");
 	const item_image = firstThumb ? firstThumb.src : "";
+	const qty = qty_str.replace(/\D/g, "") || "1";
 
 	let cart = getCart();
 
@@ -164,9 +164,7 @@ function add_to_cart(el) {
 		qty: Number(qty),
 		size: item_size
 	};
-
 	const existing = cart.find(item => item.id === item_data.id && item.size === item_data.size);
-
 	if (existing) {
 		existing.qty += Number(qty);
 	} else {
@@ -456,7 +454,7 @@ function productDetailsTemplate(product) {
 			<div class="buy-row">
 				<div class="qty">
 					<button onclick="changeQty(-1)">-</button>
-					<span id="qty">1</span>
+					<span id="qty-input">1</span>
 					<button onclick="changeQty(1)">+</button>
 				</div>
 			</div>
@@ -472,7 +470,7 @@ function productDetailsTemplate(product) {
 function changeQty(val) {
 	quantity += val;
 	if (quantity < 1) quantity = 1;
-	document.getElementById("qty").innerText = quantity;
+	document.getElementById("qty-input").innerText = quantity;
 }
 
 /* PRODUCT CARD TEMPLATE */
