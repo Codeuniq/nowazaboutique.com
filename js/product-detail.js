@@ -172,10 +172,123 @@ function add_to_cart(el) {
 	} else {
 		cart.push(item_data);
 	}
-
+	showToast("Product added to cart", "success");
 	saveCart(cart);
 	updateCartCount();
 }
+
+window.showToast = function (message, type = "success") {
+
+  // remove old toast
+  const old = document.querySelector(".modern-toast");
+  if (old) old.remove();
+
+  // styles (inject once)
+  if (!document.getElementById("toast-style")) {
+    const style = document.createElement("style");
+    style.id = "toast-style";
+    style.innerHTML = `
+      .modern-toast {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        min-width: 260px;
+        max-width: 320px;
+        padding: 14px 16px;
+        border-radius: 14px;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        overflow: hidden;
+
+        transform: translateY(30px) scale(0.9);
+        opacity: 0;
+        transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+        z-index: 999999;
+      }
+
+      .modern-toast.show {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+
+      .modern-toast.hide {
+        transform: translateY(30px) scale(0.9);
+        opacity: 0;
+      }
+
+      .modern-toast .icon {
+        font-size: 20px;
+      }
+
+      .modern-toast .text {
+        flex: 1;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      .modern-toast .bar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 3px;
+        width: 100%;
+        background: rgba(255,255,255,0.25);
+      }
+
+      .modern-toast .bar::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: #fff;
+        animation: progress 3s linear forwards;
+      }
+
+      @keyframes progress {
+        from { width: 100%; }
+        to { width: 0%; }
+      }
+
+      /* Types */
+      .success { background: linear-gradient(135deg, #00c853, #64dd17); }
+      .error { background: linear-gradient(135deg, #d50000, #ff5252); }
+      .info { background: linear-gradient(135deg, #2962ff, #448aff); }
+    `;
+    document.head.appendChild(style);
+  }
+
+  // icon
+  let icon = "✅";
+  if (type === "error") icon = "❌";
+  if (type === "info") icon = "ℹ️";
+
+  // create toast
+  const toast = document.createElement("div");
+  toast.className = `modern-toast ${type}`;
+
+  toast.innerHTML = `
+    <div class="icon">${icon}</div>
+    <div class="text">${message}</div>
+    <div class="bar"></div>
+  `;
+
+  document.body.appendChild(toast);
+
+  // show animation
+  setTimeout(() => toast.classList.add("show"), 50);
+
+  // hide after 3 sec
+  setTimeout(() => {
+    toast.classList.add("hide");
+    setTimeout(() => toast.remove(), 350);
+  }, 3000);
+};
 
 function open_cart_popup() {
 	renderCart();
